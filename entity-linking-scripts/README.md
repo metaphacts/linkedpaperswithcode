@@ -2,9 +2,9 @@
 
 ## 01_link_authors.py
 
-Start Time: Wed Jul 12 11:53:10 2023 .
-Items (lines) processed: 376557 .
-Authors processed: 1471006 .
+Start Time: Wed Jul 12 11:53:10 2023 . \\
+Items (lines) processed: 376557 . \\
+Authors processed: 1471006 . \\
 Authors linked to SemOpenAlex: 947709 .
 Authors not linked to SemOpenAlex: 523297 .
 Authors linked with query a: 850781 .
