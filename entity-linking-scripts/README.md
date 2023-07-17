@@ -13,27 +13,27 @@ End Time: Sat Jul 15 04:50:39 2023 .
 
 ## 02_link_papers.py
 
-Start Time: Sat Jul 15 18:54:16 2023 .
-Items (lines) processed: 376557 .
-Papers with title linked to SemOpenAlex: 267314 .
-Papers with title not linked to SemOpenAlex: 108994 .
-End Time: Sun Jul 16 02:01:33 2023 .
+Start Time: Sat Jul 15 18:54:16 2023 .  
+Items (lines) processed: 376557 .  
+Papers with title linked to SemOpenAlex: 267314 .  
+Papers with title not linked to SemOpenAlex: 108994 .  
+End Time: Sun Jul 16 02:01:33 2023 .  
 
 ## 03_link_areas.py
 
-Start Time: Mon Jul 17 11:10:47 2023 .
-Items (lines) processed: 16 .
-Areas linked to SemOpenAlex: 5 .
-Areas not linked to SemOpenAlex: 11 .
-End Time: Mon Jul 17 11:10:48 2023 .
+Start Time: Mon Jul 17 11:10:47 2023 .  
+Items (lines) processed: 16 .  
+Areas linked to SemOpenAlex: 5 .  
+Areas not linked to SemOpenAlex: 11 .  
+End Time: Mon Jul 17 11:10:48 2023 .  
 
 ## 04_link_datasets.py
 
-Start Time: Mon Jul 17 10:26:43 2023 .
-Items (lines) processed: 8322 .
-Datasets linked to Wikidata: 158 .
-Datasets not linked to Wikidata: 8164 .
-End Time: Mon Jul 17 11:07:48 2023 .
+Start Time: Mon Jul 17 10:26:43 2023 .  
+Items (lines) processed: 8322 .  
+Datasets linked to Wikidata: 158 .  
+Datasets not linked to Wikidata: 8164 .  
+End Time: Mon Jul 17 11:07:48 2023 .  
 
 
 ## Technical details 
