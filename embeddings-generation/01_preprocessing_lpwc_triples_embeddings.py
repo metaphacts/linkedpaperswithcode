@@ -1,3 +1,9 @@
+''' 
+Preprocessing script to tranform linkedpaperswithcode.nt to input files for knowedle graph embedding models.
+Input file: linkedpaperswithcode.nt
+Output files: triples_input_embeddings.txt, entity_mapping.txt and relation_mapping.txt
+'''
+
 import rdflib
 from rdflib import Graph, URIRef
 import numpy as np
