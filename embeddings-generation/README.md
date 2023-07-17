@@ -4,7 +4,7 @@
 
 *01:* Extracts triples from full RDF dump of Linked Papers with Code and map all URIs to integers. 
 
-*01:* Train entity embeddings 
+*02:* Train entity embeddings 
 
 
 ### Evaluation results
