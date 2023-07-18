@@ -7,7 +7,7 @@ LinkedPaperswithcode is based on [Paperswithcode](https://paperswithcode.com). T
 
 
 <figure>
-    <img width="1453" height="1022" src="linkedpaperswithcode-schema.png"
+    <img width="1047" height="754" src="linkedpaperswithcode-schema.png"
          alt="Schema of Linked Papers With Code">
     <figcaption>Schema of Linked Papers With Code</figcaption>
 </figure>
