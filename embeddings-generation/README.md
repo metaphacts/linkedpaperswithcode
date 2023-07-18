@@ -23,7 +23,7 @@ using early-stopping based on the mean rank on the validation sets, calculated e
 The validation mean rank for the validation set can be seen in the [validation-early-stopping](./validation-early-stopping) folder.
 For TransE and RotatE training was stopped after 300 epochs. DistMult and ComplEx
 tarined 900 epochs. For TransE, DistMult and RotatE the Adam Optimizer was used,
-for ComplEx Adagrad. The final hyperparamters for training used are provided in Table below. For DistMult and ComplEx furthermore a weight decay of 1e-6 is used.
+for ComplEx Adagrad. The final hyperparamters used for the training are provided in Table below. For DistMult and ComplEx furthermore a weight decay of 1e-6 is used.
 
 | Hyperparameter  | Value | 
 |---------|-------:|
