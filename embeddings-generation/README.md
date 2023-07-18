@@ -2,9 +2,17 @@
 
 ### Pre-processing and Embedding training
 
-*01:* Extracts triples from full RDF dump of Linked Papers with Code and map all URIs to integers. 
+*01:* Extracts triples from full RDF dump of Linked Papers with Code, delete auxiliary classes and map all URIs to integers.  
+      The pre-processing steps lead to a dataset with 1,454,103 triples, 527,817 entities (from 11 different classes) and 15
+      relations.
 
-*02:* Train entity embeddings 
+*02:* Train TransE entity embeddings and save the embeddings for the entites and relations in csv files.
+
+*03:* Train DistMult entity embeddings.  
+
+*04:* Train ComplEx entity embeddings.
+
+*05:* Train RotatE entity embeddings.
 
 
 ### Evaluation results
