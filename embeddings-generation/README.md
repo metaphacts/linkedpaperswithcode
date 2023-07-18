@@ -20,3 +20,5 @@ The best values for the metrics mean rank (MR) and Hits@N are marked bold.
 
 
 ### Technical details
+All computational tasks were carried out on the bwUniCluster 2.0 infrastructure using a node equipped with an NVIDIA A100 80G GPU. 
+All scripts for embeddings generation were conducted in an isolated virtual environment running Python 3.9.7, torch 2.0, torch-geometric 2.4 and CUDA 12.0.
