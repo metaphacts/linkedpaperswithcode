@@ -16,6 +16,7 @@ LinkedPaperswithcode is based on [Paperswithcode](https://paperswithcode.com). T
 ## Knowledge Graph Construction 
 
 ### Data transformation
+The scripts for the Data transformation based on the [Paperswithcode dataset snapshot](https://github.com/paperswithcode/paperswithcode-data) to construct the Knowledge graph are in the folder [transformation-scripts](./transformation-scripts).
 
 ### Entity Linking 
 
