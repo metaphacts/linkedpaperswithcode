@@ -19,6 +19,8 @@ LinkedPaperswithcode is based on [Paperswithcode](https://paperswithcode.com). T
 The scripts for the Data transformation based on the [Paperswithcode dataset snapshot](https://github.com/paperswithcode/paperswithcode-data) to construct the Knowledge graph are in the folder [transformation-scripts](./transformation-scripts).
 
 ### Entity Linking 
-
+The scripts for Linking the Entities of Linked Papers With Code to SemOpenAlex and Wikidata are in the folder [entity-linking-scripts](./entity-linking-scripts).
 
 ## Knowledge Graph Embeddings
+The scripts for generating the Knowledge Graph Embeddings and the Evaluation Results of the diffrent Knowledge Graph Embeddings Models are in the folder [embeddings-generation](./embeddings-generation).
+
