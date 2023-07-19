@@ -22,5 +22,5 @@ The scripts for the Data transformation based on the [Paperswithcode dataset sna
 The scripts for Linking the Entities of Linked Papers With Code to SemOpenAlex and Wikidata are in the folder [entity-linking-scripts](./entity-linking-scripts).
 
 ## Knowledge Graph Embeddings
-The scripts for generating the Knowledge Graph Embeddings and the Evaluation Results of the diffrent Knowledge Graph Embeddings Models are in the folder [embeddings-generation](./embeddings-generation).
+The scripts for generating the Knowledge Graph Embeddings and the Evaluation Results of the different Knowledge Graph Embeddings Models are in the folder [embeddings-generation](./embeddings-generation).
 
