@@ -16,7 +16,14 @@ LinkedPaperswithcode is based on [Paperswithcode](https://paperswithcode.com). T
 ## Knowledge Graph Construction 
 
 ### Data transformation
-The scripts for the Data transformation based on the [Paperswithcode dataset snapshot](https://github.com/paperswithcode/paperswithcode-data) to construct the Knowledge graph are in the folder [transformation-scripts](./transformation-scripts).
+To construct the Linked Papers With Code Knowledge Graph based o the [Paperswithcode dataset snapshot](https://github.com/paperswithcode/paperswithcode-data) we use the following [python scripts](./transformation-scripts):
+
+1. [01_papers.py](./transformation-scripts/01_papers.py)
+2. [02_conferences.py](./transformation-scripts/02_conferences.py)
+3. [03_methods.py](./transformation-scripts/03_methods.py)
+4. [04_papers-code-and-datasets.py](./transformation-scripts/04_papers-code-and-datasets.py)
+5. [05_evaluation-tables.py](./transformation-scripts/05_evaluation-tables.py)
+6. [06_validation-and-formats.py](./transformation-scripts/06_validation-and-formats.py)
 
 ### Entity Linking 
 The scripts for Linking the Entities of Linked Papers With Code to SemOpenAlex and Wikidata are in the folder [entity-linking-scripts](./entity-linking-scripts).
