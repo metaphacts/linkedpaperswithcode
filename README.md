@@ -1,8 +1,7 @@
 # LinkedPaperswithcode
 
-LinkedPaperswithcode is a RDF knoweldge graph containing detailed information about machine learning papers, repositories, datasets, methods, tasks, models, evaluations and related information.
 
-LinkedPaperswithcode is based on [Paperswithcode](https://paperswithcode.com). The underlying [dataset snapshot](https://github.com/paperswithcode/paperswithcode-data) of Paperswithcode are regenerated daily. With the scripts provided in this repository, the LinkedPaperswithcode knowledeg graph can be re-generated based on the snapshot.
+Linked Papers With Code (LPWC) is an RDF knowledge graph that comprehensively models the research field of machine learning. It contains information about almost 400,000 machine learning publications, including the tasks addressed, the datasets utilized, the methods implemented, and the evaluations conducted, along with their results. The data set is based on [Papers With Code](https://paperswithcode.com). The underlying [dataset snapshot](https://github.com/paperswithcode/paperswithcode-data) of Papers With Code are regenerated daily.With the scripts provided in this repository, the LPWC knowledeg graph can be re-generated based on the snapshot. Furthermore, we provide [knowledge graph embeddings](./embeddings-generation) for entities and relations represented in LPWC.
 
 
 
@@ -16,7 +15,7 @@ LinkedPaperswithcode is based on [Paperswithcode](https://paperswithcode.com). T
 ## Knowledge Graph Construction 
 
 ### Data transformation
-To construct the Linked Papers With Code Knowledge Graph based o the [Paperswithcode dataset snapshot](https://github.com/paperswithcode/paperswithcode-data) we use the following [python scripts](./transformation-scripts):
+To construct the Linked Papers With Code Knowledge Graph based on the [Paperswithcode dataset snapshot](https://github.com/paperswithcode/paperswithcode-data) we use the following [python scripts](./transformation-scripts):
 
 1. [01_papers.py](./transformation-scripts/01_papers.py)
 2. [02_conferences.py](./transformation-scripts/02_conferences.py)
