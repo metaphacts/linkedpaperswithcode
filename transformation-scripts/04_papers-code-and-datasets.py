@@ -6,7 +6,6 @@
         papers_code.nt
         datasets.nt
 """
-
 from rdflib import Graph
 from rdflib import URIRef, BNode, Literal
 from rdflib.namespace import DCTERMS, RDF, RDFS, XSD, OWL, FOAF
@@ -56,7 +55,32 @@ replacements = [
         "comment": "Newline string"
     }
 ]
+
 replacements_url = [
+    {
+        "search": re.compile(r'"'),
+        "replace": '%22',
+        "comment": "Unescaped quotation mark in URI"
+    }, {
+        "search": re.compile(r'\\'),
+        "replace": '%5c',
+        "comment": "Unescaped backslash in URI"
+    }, {
+        "search": re.compile(r'\n'),
+        "replace": '',
+        "comment": "Newline string"
+    }, {
+        "search": re.compile(r'\r'),
+        "replace": '',
+        "comment": "Newline string"
+    }, {
+        "search": re.compile(r'\t'),
+        "replace": '',
+        "comment": "Newline string"
+    },
+]
+
+replacements_uri = [
     {
         "search": re.compile(r'"'),
         "replace": '%22',
@@ -176,7 +200,6 @@ replacements_url = [
     }
 ]
 
-
 def clean(nameStr):
     cleaned_str = nameStr
     for r in replacements:
@@ -193,6 +216,12 @@ def clean_url(nameStr):
     return cleaned_str
 
 
+def clean_uri(nameStr):
+    cleaned_str = nameStr
+    for r in replacements_uri:
+        if re.search(r["search"], nameStr):
+            cleaned_str = re.sub(r["search"], r["replace"], cleaned_str)
+    return cleaned_str
 
 def convert_markdown_to_plain_text(md_string):
     html = markdown.markdown(md_string)
@@ -240,6 +269,7 @@ has_variant = URIRef("https://linkedpaperswithcode.com/property/hasVariant")
 num_papers = URIRef("https://linkedpaperswithcode.com/property/numberPapers") 
 has_data_loader = URIRef("https://linkedpaperswithcode.com/property/hasDataLoader")
 has_repo_reference = URIRef("https://linkedpaperswithcode.com/property/hasRepositoryReferences")
+introduced_by_url = URIRef("https://linkedpaperswithcode.com/property/introducedByUrl")
 
 
 #papers_code.json
@@ -261,7 +291,7 @@ with open(ntriple_paper_code_output_file_path, "w", encoding="utf-8") as g:
            
             #repo_url repo_uri
             repo_url = clean_url(paper_code_entry["repo_url"])
-            repo_id = repo_url.replace("https://", "").replace("http://", "")
+            repo_id = clean_uri(paper_code_entry["repo_url"]).replace("https//", "").replace("http//", "")
             repo_id = repo_id.lower()
             repo_uri = URIRef(lpwc_repository + repo_id)
 
@@ -371,21 +401,9 @@ with open(ntriple_datasets_output_file_path, "w", encoding="utf-8") as g:
                     lpwc_graph.add((dataset_uri, introduced_by, paper_uri))
 
                 else:
-                    paper_id = dataset["paper"]["url"].replace(" ", "-").lower()
-                    paper_id = paper_id.replace("https://", "").replace("http://", "")
-                    paper_uri = URIRef(lpwc_paper + paper_id)
-
-                    lpwc_graph.add((paper_uri, RDF.type, lpwc_paper_class))
-                    lpwc_graph.add((dataset_uri, introduced_by, paper_uri))
-                    
-                    #title
-                    paper_title = clean(dataset["paper"]["title"])
-                    lpwc_graph.add((paper_uri, DCTERMS.title , Literal(paper_title, datatype=XSD.string)))
-
-                    #url
                     paper_url = clean_url(dataset["paper"]["url"])
-                    lpwc_graph.add((paper_uri, has_url, Literal(paper_url, datatype=XSD.anyURI)))
-
+                    lpwc_graph.add((dataset_uri, introduced_by_url, Literal(paper_url, datatype=XSD.anyURI)))
+        
 
             #introduced_date
             if dataset["introduced_date"] != "" and dataset["introduced_date"] is not None:
@@ -429,7 +447,7 @@ with open(ntriple_datasets_output_file_path, "w", encoding="utf-8") as g:
                 for data_loader in dataset["data_loaders"]:
                     if data_loader["url"] != "" and data_loader["url"] is not None:
                         data_loader_url = clean_url(data_loader["url"])
-                        data_loader_id = data_loader_url.replace("https://", "").replace("http://", "")
+                        data_loader_id = clean_uri(data_loader["url"]).replace("https//", "").replace("http//", "")
                         data_loader_uri = URIRef(lpwc_data_loader + data_loader_id)
                         lpwc_graph.add((data_loader_uri, RDF.type, lpwc_dataloader_class))
                         lpwc_graph.add((data_loader_uri, FOAF.homepage, Literal(data_loader_url, datatype=XSD.anyURI)))
@@ -437,7 +455,7 @@ with open(ntriple_datasets_output_file_path, "w", encoding="utf-8") as g:
 
                         if data_loader["repo"] != "" and data_loader["repo"] is not None:
                             data_loader_repo_url = clean_url(data_loader["repo"])
-                            data_loader_repo_id = data_loader_repo_url.replace("https://", "").replace("http://", "")
+                            data_loader_repo_id = clean_uri(data_loader["repo"]).replace("https//", "").replace("http//", "")
                             data_loader_repo_uri = URIRef(lpwc_repository + data_loader_repo_id)
 
                             #Überprüfen ob es Reposirory schon gibt 
@@ -472,3 +490,4 @@ with open(ntriple_datasets_output_file_path, "w", encoding="utf-8") as g:
         
 g.close()
 print("Done")
+
