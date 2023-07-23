@@ -1,4 +1,4 @@
-# LinkedPaperswithcode
+# Linked Papers With Code
 
 
 Linked Papers With Code (LPWC) is an RDF knowledge graph that comprehensively models the research field of machine learning. It contains information about almost 400,000 machine learning publications, including the tasks addressed, the datasets utilized, the methods implemented, and the evaluations conducted, along with their results. The data set is based on [Papers With Code](https://paperswithcode.com). The underlying [dataset snapshot](https://github.com/paperswithcode/paperswithcode-data) of Papers With Code are regenerated daily. With the scripts provided in this repository, the LPWC knowledeg graph can be re-generated based on the snapshot. Furthermore, we provide [knowledge graph embeddings](./embeddings-generation) for entities and relations represented in LPWC.
