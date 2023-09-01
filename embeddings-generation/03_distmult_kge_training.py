@@ -95,6 +95,11 @@ with open(".../distmult-kge-summary.txt", "w",) as z:
             k=k,
         )
 
+    for epoch in range(1, 301):
+        loss = train()
+        z.write(f'Epoch: {epoch:03d}, Loss: {loss:.4f}\n')
+        z.flush()
+        
     '''
     Uncomment if you want to evaluate the training every 300 epochs based on the validation set (e.g., for early stopping)
     for epoch in range(1, 301):
