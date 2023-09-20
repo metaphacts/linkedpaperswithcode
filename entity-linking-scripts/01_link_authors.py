@@ -122,7 +122,6 @@ with open(ntriple_output_file_path, "w", encoding="utf-8") as g:
                             authors_linked_query_a += 1
                             author_linked_count += 1
 
-                        #hier expect block machen?
                         else:
                             paper_title = paper["title"]
                             paper_title_dot = paper_title + "."
