@@ -1,4 +1,4 @@
-#link linkedpaperswithcode author name strings to author entities in SemOpenAlex
+#link paperswithcode author name strings to author entities in SemOpenAlex
 import json
 from SPARQLWrapper import SPARQLWrapper, JSON
 from rdflib import Graph
