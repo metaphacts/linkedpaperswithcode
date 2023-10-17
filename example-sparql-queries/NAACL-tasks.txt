@@ -1,0 +1,15 @@
+PREFIX lpwc: <https://linkedpaperswithcode.com/property/>
+PREFIX foaf: <http://xmlns.com/foaf/0.1/>
+
+SELECT ?taskName (COUNT(?taskName) AS ?count)
+WHERE {
+  ?paper a <https://linkedpaperswithcode.com/class/paper> .
+  ?paper lpwc:hasConference ?conference .
+  ?conference foaf:name "North American Chapter of the Association for Computational Linguistics (NAACL)"^^<http://www.w3.org/2001/XMLSchema#string> .
+  ?paper lpwc:hasTask ?task .
+  ?task foaf:name ?taskName .
+}
+GROUP BY ?taskName
+ORDER BY DESC(?count)
+
+LIMIT 8

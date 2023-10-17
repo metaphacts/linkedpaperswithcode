@@ -1,0 +1,13 @@
+PREFIX lpwc: <https://linkedpaperswithcode.com/property/>
+PREFIX dcterms: <http://purl.org/dc/terms/>
+PREFIX foaf: <http://xmlns.com/foaf/0.1/>
+
+SELECT DISTINCT  (COUNT(?paper) AS ?count)
+WHERE {
+  ?paper a <https://linkedpaperswithcode.com/class/paper> .
+  ?paper lpwc:hasTask <https://linkedpaperswithcode.com/task/dimensionality-reduction> .
+  ?paper dcterms:date ?date .
+
+  FILTER (strStarts(str(?date), "2021-"))
+  FILTER (str(?date) >= "2021-01-01" && str(?date) <= "2021-12-31")
+}

@@ -1,0 +1,14 @@
+PREFIX lpwc: <https://linkedpaperswithcode.com/property/> 
+PREFIX dcterms: <http://purl.org/dc/terms/>
+
+SELECT ?datasetTitle (COUNT(?paper) AS ?count)
+WHERE {
+?paper a <https://linkedpaperswithcode.com/class/paper> . 
+?dataset a <https://linkedpaperswithcode.com/class/dataset> . 
+?paper lpwc:usesDataset ?dataset .
+?dataset dcterms:title ?datasetTitle .
+}
+
+GROUP BY ?datasetTitle
+ORDER BY DESC(?count)
+LIMIT 8
