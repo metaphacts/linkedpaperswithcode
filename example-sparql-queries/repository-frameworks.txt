@@ -1,0 +1,11 @@
+PREFIX lpwc: <https://linkedpaperswithcode.com/property/>
+
+SELECT ?framework (COUNT(?framework) AS ?count)
+WHERE {
+?repository a <https://linkedpaperswithcode.com/class/repository> .
+?repository lpwc:hasFramework ?framework.
+}
+
+GROUP BY ?framework
+ORDER BY DESC(?count)
+LIMIT 10
