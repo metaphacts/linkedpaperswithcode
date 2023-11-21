@@ -6,13 +6,14 @@ Linked Papers With Code (LPWC) is an RDF knowledge graph that comprehensively mo
 LPWC is available at **https://linkedpaperswithcode.com**.
 
 
+For an overview of LPWC see our [ISWC2023 Poster](Poster_LPWC_ISWC2023.pdf).
+
 <figure>
     <img width="753" height="542" src="linkedpaperswithcode-schema.png"
          alt="Schema of Linked Papers With Code">
     <figcaption>Schema of Linked Papers With Code</figcaption>
 </figure>
 
-For an overview of LPWC see our [ISWC2023 Poster](Poster_LPWC_ISWC2023.pdf).
 
 ## Knowledge Graph Construction 
 
