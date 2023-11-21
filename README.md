@@ -33,5 +33,5 @@ The scripts for Linking the Entities of Linked Papers With Code to SemOpenAlex a
 ## Knowledge Graph Embeddings
 The scripts for generating the Knowledge Graph Embeddings and the Evaluation Results of the different Knowledge Graph Embeddings Models are in the folder [embeddings-generation](./embeddings-generation).
 
-## How to Cite
-If you use LPWC please cite our [paper](https://arxiv.org/pdf/2310.20475.pdf).
+## Reference & More Information
+More Information about LPWC and its creation can be found in our [paper](https://arxiv.org/pdf/2310.20475.pdf).
