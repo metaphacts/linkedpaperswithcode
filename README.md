@@ -12,6 +12,7 @@ LPWC is available at **https://linkedpaperswithcode.com**.
     <figcaption>Schema of Linked Papers With Code</figcaption>
 </figure>
 
+For an overview of LPWC see our [ISWC2023 Poster](Poster_LPWC_ISWC2023.pdf).
 
 ## Knowledge Graph Construction 
 
@@ -31,3 +32,5 @@ The scripts for Linking the Entities of Linked Papers With Code to SemOpenAlex a
 ## Knowledge Graph Embeddings
 The scripts for generating the Knowledge Graph Embeddings and the Evaluation Results of the different Knowledge Graph Embeddings Models are in the folder [embeddings-generation](./embeddings-generation).
 
+## How to Cite
+If you use LPWC please cite our [paper](https://arxiv.org/pdf/2310.20475.pdf).
