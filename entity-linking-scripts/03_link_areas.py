@@ -57,7 +57,7 @@ area_list = get_all_areas(client)
 
 query_area = """ 
     PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
-    PREFIX soa: <https://semopenalex.org/property/>
+    PREFIX soa: <https://semopenalex.org/ontology/>
     PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
     PREFIX dcterms: <http://purl.org/dc/terms/>
     PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
