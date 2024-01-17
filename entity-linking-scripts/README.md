@@ -1,4 +1,42 @@
-# Linking Results
+# Linking Results LPWC version v2
+
+## 01_link_authors.py
+
+Start Time: Thu Dec 21 11:03:27 2023 .
+Items (lines) processed: 418170 .
+Authors processed: 1653780 .
+Authors linked to SemOpenAlex: 1169888 .
+Authors not linked to SemOpenAlex: 483892 .
+Authors linked with query a: 1059603 .
+Authors linked with query b: 110285 .
+End Time: Sun Dec 24 23:19:00 2023 .
+
+## 02_link_papers.py
+
+Start Time: Wed Dec 27 19:58:58 2023 .
+Items (lines) processed: 418170 .
+Papers with title linked to SemOpenAlex: 308998 .
+Papers with title not linked to SemOpenAlex: 108887 .
+End Time: Thu Dec 28 03:57:52 2023 .
+
+## 03_link_areas.py
+
+Start Time: Thu Dec 28 11:16:26 2023 .
+Items (lines) processed: 16 .
+Areas linked to SemOpenAlex: 5 .
+Areas not linked to SemOpenAlex: 11 .
+End Time: Thu Dec 28 11:16:27 2023 .
+
+## 04_link_datasets.py
+
+Start Time: Wed Dec 20 17:36:01 2023 .
+Items (lines) processed: 8957 .
+Datasets linked to Wikidata: 166 .
+Datasets not linked to Wikidata: 8791 .
+End Time: Wed Dec 20 18:16:37 2023 .
+
+
+# Linking Results LPWC version v1
 
 ## 01_link_authors.py
 
