@@ -40,12 +40,12 @@ lpwc_paper = URIRef(lpwc_namespace + "/paper/")
 
 query_work = """ 
     PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
-    PREFIX soa: <https://semopenalex.org/property/>
+    PREFIX soa: <https://semopenalex.org/ontology/>
     PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
     PREFIX dcterms: <http://purl.org/dc/terms/>
     
     SELECT DISTINCT ?paper WHERE {
-    ?paper rdf:type <https://semopenalex.org/class/Work> .
+    ?paper rdf:type <https://semopenalex.org/ontology/Work> .
     { ?paper dcterms:title "?PAPER_TITLE"^^xsd:string . }
     UNION
     { ?paper dcterms:title "?DOT"^^xsd:string . }
