@@ -15,7 +15,7 @@
 *05:* Train RotatE entity embeddings.
 
 
-### Evaluation results
+### Evaluation results for LPWC version v1
 
 We spilt triples in the dataset into a training set with 80%, a validation set with 10% and
 a test set with 10% of the total triples. We trained a maximum of 900 epochs
@@ -42,6 +42,18 @@ Final evaluation results. The best values for the metrics mean rank (MR) and Hit
 | Hits@1  |  **0.2395** |  0.1931   |  0.1655  |   0.1146   |
 | Hits@3  |  **0.3852** |  0.3204   |  0.2814  |   0.1921   |
 | Hits@10 |  **0.5425** |  0.4856   |  0.4390  |   0.3133   |
+
+
+### Evaluation results for LPWC version v2
+
+We trained TransE embeddings. Training was stopped after 900 epochs. We used the same hyperparamters as for LPWC version v1. 
+
+| Metric  | TransE | 
+|---------|-------:|
+| MR      | **2412.52** |  
+| Hits@1  |  **0.2336** |  
+| Hits@3  |  **0.3717** |  
+| Hits@10 |  **0.5212** | 
 
 
 ### Technical details
