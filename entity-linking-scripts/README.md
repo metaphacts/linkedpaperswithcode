@@ -2,14 +2,14 @@
 
 ## 01_link_authors.py
 
-Start Time: Thu Dec 21 11:03:27 2023 . 
-Items (lines) processed: 418170 . 
-Authors processed: 1653780 . 
-Authors linked to SemOpenAlex: 1169888 . 
-Authors not linked to SemOpenAlex: 483892 . 
-Authors linked with query a: 1059603 . 
-Authors linked with query b: 110285 . 
-End Time: Sun Dec 24 23:19:00 2023 . 
+Start Time: Thu Dec 21 11:03:27 2023 .  
+Items (lines) processed: 418170 .  
+Authors processed: 1653780 .  
+Authors linked to SemOpenAlex: 1169888 .  
+Authors not linked to SemOpenAlex: 483892 .  
+Authors linked with query a: 1059603 .  
+Authors linked with query b: 110285 .  
+End Time: Sun Dec 24 23:19:00 2023 .  
 
 ## 02_link_papers.py
 
