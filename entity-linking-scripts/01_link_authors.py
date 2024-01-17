@@ -46,13 +46,13 @@ lpwc_graph = Graph()
 query_authors_a = """
     PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
     PREFIX foaf: <http://xmlns.com/foaf/0.1/>
-    PREFIX soa: <https://semopenalex.org/property/>
+    PREFIX soa: <https://semopenalex.org/ontology/>
     PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
     PREFIX dcterms: <http://purl.org/dc/terms/>
     
     SELECT DISTINCT ?author WHERE {
-    ?paper rdf:type <https://semopenalex.org/class/Work> .
-    ?author rdf:type <https://semopenalex.org/class/Author> .
+    ?paper rdf:type <https://semopenalex.org/ontology/Work> .
+    ?author rdf:type <https://semopenalex.org/ontology/Author> .
     ?paper dcterms:title ?paperTitle . 
     ?paper dcterms:creator ?author . 
     ?author foaf:name "?AUTHOR_NAME"^^xsd:string .
@@ -66,13 +66,13 @@ query_authors_a = """
 query_authors_b = """
     PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
     PREFIX foaf: <http://xmlns.com/foaf/0.1/>
-    PREFIX soa: <https://semopenalex.org/property/>
+    PREFIX soa: <https://semopenalex.org/ontology/>
     PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
     PREFIX dcterms: <http://purl.org/dc/terms/>
     
     SELECT DISTINCT ?author ?authorName WHERE {
-    ?paper rdf:type <https://semopenalex.org/class/Work> .
-    ?author rdf:type <https://semopenalex.org/class/Author> .
+    ?paper rdf:type <https://semopenalex.org/ontology/Work> .
+    ?author rdf:type <https://semopenalex.org/ontology/Author> .
     { ?paper dcterms:title "?PAPER_TITLE"^^xsd:string . }
     UNION
     { ?paper dcterms:title "?DOT"^^xsd:string . }
