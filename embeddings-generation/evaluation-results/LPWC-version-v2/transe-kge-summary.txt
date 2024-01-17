@@ -1,4 +1,3 @@
-Calculate embeddings with TransE started at: Fri Jan 12 13:23:45 2024
 Using device: cuda:0
 Epoch: 001, Loss: 0.7043
 Epoch: 002, Loss: 0.5560
@@ -903,4 +902,3 @@ Epoch: 900, Loss: 0.0679
 Test Mean Rank: 2412.52, Test Hits@1: 0.2336
 Test Mean Rank: 2412.52, Test Hits@3: 0.3717
 Test Mean Rank: 2412.52, Test Hits@10: 0.5212
-Calculate embeddings with TransE end at: Sat Jan 13 08:22:31 2024
