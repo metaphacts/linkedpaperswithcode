@@ -231,7 +231,7 @@ lpwc_area = URIRef(lpwc_namespace + "/area/")
 
 #LinkedPapersWithCode predicates used in this file
 has_subtask = URIRef("https://linkedpaperswithcode.com/property/hasSubtask")
-has_area  = URIRef("https://dbpedia.org/property/area")
+has_area  = URIRef("http://dbpedia.org/property/area")
 has_task = URIRef("https://linkedpaperswithcode.com/property/hasTask")
 has_evaluation = URIRef("https://linkedpaperswithcode.com/property/hasEvaluation")
 has_dataset = URIRef("https://linkedpaperswithcode.com/property/hasDataset")

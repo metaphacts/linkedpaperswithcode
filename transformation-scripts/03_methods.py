@@ -122,13 +122,13 @@ lpwc_category = URIRef(lpwc_namespace + "/methods/category/")
 lpwc_area = URIRef(lpwc_namespace + "/area/")
 
 #LinkedPapersWithCode predicates used in this file
-has_full_name = URIRef("https://dbpedia.org/property/fullname")
+has_full_name = URIRef("http://dbpedia.org/property/fullname")
 introduced_by = URIRef("https://linkedpaperswithcode.com/property/introducedBy")
 introduced_year = URIRef("https://linkedpaperswithcode.com/property/introducedYear")
 has_code_snippet = URIRef("https://linkedpaperswithcode.com/property/codeSnippet")
 has_number_papers = URIRef("https://linkedpaperswithcode.com/property/numberPapers")
-has_category = URIRef("https://dbpedia.org/property/category")
-has_area  = URIRef("https://dbpedia.org/property/area")
+has_category = URIRef("http://dbpedia.org/property/category")
+has_area  = URIRef("http://dbpedia.org/property/area")
 
 
 lpwc_graph = Graph()

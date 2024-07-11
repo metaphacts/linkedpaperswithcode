@@ -261,7 +261,7 @@ paper_mentions_repository = URIRef("https://linkedpaperswithcode.com/property/pa
 repository_mentions_paper = URIRef("https://linkedpaperswithcode.com/property/repositoryMentionsPaper")
 has_framework = URIRef("https://linkedpaperswithcode.com/property/hasFramework")
 
-has_full_name = URIRef("https://dbpedia.org/property/fullname")
+has_full_name = URIRef("http://dbpedia.org/property/fullname")
 introduced_by = URIRef("https://linkedpaperswithcode.com/property/introducedBy")
 has_modality = URIRef("https://linkedpaperswithcode.com/property/modality")
 used_for_task = URIRef("https://linkedpaperswithcode.com/property/usedForTask")
