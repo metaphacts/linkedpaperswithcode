@@ -160,13 +160,13 @@ A repository is a place where code and data is stored
 <rdfs:domain rdf:resource="https://linkedpaperswithcode.com/class/paper"/>
 <rdfs:range rdf:resource="https://semopenalex.org/class/Author"/>
 </owl:ObjectProperty>
-<!--  https://dbpedia.org/property/category  -->
-<owl:ObjectProperty rdf:about="https://dbpedia.org/property/category">
+<!--  http://dbpedia.org/property/category  -->
+<owl:ObjectProperty rdf:about="http://dbpedia.org/property/category">
 <rdfs:domain rdf:resource="https://linkedpaperswithcode.com/class/method"/>
 <rdfs:range rdf:resource="https://linkedpaperswithcode.com/class/category"/>
 </owl:ObjectProperty>
-<!--  https://dbpedia.org/property/area  -->
-<owl:ObjectProperty rdf:about="https://dbpedia.org/property/area">
+<!--  http://dbpedia.org/property/area  -->
+<owl:ObjectProperty rdf:about="http://dbpedia.org/property/area">
 <rdfs:domain>
 <owl:Class>
 <owl:unionOf rdf:parseType="Collection">
@@ -544,13 +544,13 @@ A repository is a place where code and data is stored
 <rdfs:label xml:lang="en">introduced by url</rdfs:label>
 <rdfs:comment xml:lang="en">This property specifies the url of the paper that introduced a dataset</rdfs:comment>
 </owl:DatatypeProperty>
-<!--  https://dbpedia.org/property/acronym  -->
-<owl:DatatypeProperty rdf:about="https://dbpedia.org/property/acronym">
+<!--  http://dbpedia.org/property/acronym  -->
+<owl:DatatypeProperty rdf:about="http://dbpedia.org/property/acronym">
 <rdfs:domain rdf:resource="https://linkedpaperswithcode.com/class/conference"/>
 <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
 </owl:DatatypeProperty>
-<!--  https://dbpedia.org/property/fullname  -->
-<owl:DatatypeProperty rdf:about="https://dbpedia.org/property/fullname">
+<!--  http://dbpedia.org/property/fullname  -->
+<owl:DatatypeProperty rdf:about="http://dbpedia.org/property/fullname">
 <rdfs:domain>
 <owl:Class>
 <owl:unionOf rdf:parseType="Collection">

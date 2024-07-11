@@ -18,7 +18,7 @@
 
 <http://xmlns.com/foaf/0.1/homepage> a owl:DatatypeProperty .
 
-<https://dbpedia.org/property/fullname> a owl:DatatypeProperty .
+<http://dbpedia.org/property/fullname> a owl:DatatypeProperty .
 
 <https://linkedpaperswithcode.com/property/hasVariant> a owl:DatatypeProperty;
   rdfs:comment "This property specifies the variant of a dataset"@en;
@@ -74,7 +74,7 @@ A method is a machine learning component that refers to a specific procedure or 
 
 <http://xmlns.com/foaf/0.1/name> a owl:DatatypeProperty .
 
-<https://dbpedia.org/property/category> a owl:ObjectProperty .
+<http://dbpedia.org/property/category> a owl:ObjectProperty .
 
 <https://linkedpaperswithcode.com/property/introducedYear> a owl:DatatypeProperty;
   rdfs:comment "This property specifies the year a method was introduced"@en;
@@ -140,7 +140,7 @@ A task is a specific problem or operation for which solutions are developed and 
 """@en;
   rdfs:label "Task"@en .
 
-<https://dbpedia.org/property/area> a owl:ObjectProperty .
+<http://dbpedia.org/property/area> a owl:ObjectProperty .
 
 <https://linkedpaperswithcode.com/property/hasSubtask> a owl:ObjectProperty;
   rdfs:comment "This property specifies a subtask of a task"@en;
@@ -150,7 +150,7 @@ A task is a specific problem or operation for which solutions are developed and 
   rdfs:comment "A Conference where Papers are published"@en;
   rdfs:label "Conference"@en .
 
-<https://dbpedia.org/property/acronym> a owl:DatatypeProperty .
+<http://dbpedia.org/property/acronym> a owl:DatatypeProperty .
 
 <https://linkedpaperswithcode.com/property/dblpURL> a owl:DatatypeProperty;
   rdfs:comment "This property specifies the dblp url of a conference"@en;
@@ -250,7 +250,7 @@ A repository references holds information whether a paper is referenced in the a
       sh:path <https://linkedpaperswithcode.com/property/dblpURL>;
       sh:datatype xsd:anyURI
     ], [ a sh:PropertyShape;
-      sh:path <https://dbpedia.org/property/acronym>;
+      sh:path <http://dbpedia.org/property/acronym>;
       sh:datatype xsd:string
     ], _:genid-84c7c81ba60a477ba10857b78b5917ac170-f4b3e171658f463a5673bb1ff1c1ccce;
   sh:targetClass <https://linkedpaperswithcode.com/class/conference> .
@@ -325,7 +325,7 @@ _:genid-84c7c81ba60a477ba10857b78b5917ac170-ac28eb3af0795ce9067f0b85a1a50426 a s
       sh:datatype xsd:gYear
     ], [ a sh:PropertyShape;
       sh:class <https://linkedpaperswithcode.com/class/category>;
-      sh:path <https://dbpedia.org/property/category>
+      sh:path <http://dbpedia.org/property/category>
     ], [ a sh:PropertyShape;
       sh:path <https://linkedpaperswithcode.com/property/codeSnippet>;
       sh:datatype xsd:anyURI
@@ -356,7 +356,7 @@ _:genid-84c7c81ba60a477ba10857b78b5917ac170-cdf575ff666c3c2e731ef9b60b60d0c1 a s
       ]) .
 
 _:genid-84c7c81ba60a477ba10857b78b5917ac170-daa276fe9df620e9cb787d878735113e a sh:PropertyShape;
-  sh:path <https://dbpedia.org/property/fullname>;
+  sh:path <http://dbpedia.org/property/fullname>;
   sh:datatype xsd:string;
   sh:or ([
         sh:class <https://linkedpaperswithcode.com/class/dataset>
@@ -495,7 +495,7 @@ _:genid-84c7c81ba60a477ba10857b78b5917ac170-2411dd3c43eaaae6d0a09d76eddcba58 a s
 
 _:genid-84c7c81ba60a477ba10857b78b5917ac170-6fbb1fff905bdc8832145c6ff463d0f5 a sh:PropertyShape;
   sh:class <https://linkedpaperswithcode.com/class/area>;
-  sh:path <https://dbpedia.org/property/area>;
+  sh:path <http://dbpedia.org/property/area>;
   sh:or ([
         sh:class <https://linkedpaperswithcode.com/class/task>
       ] [
