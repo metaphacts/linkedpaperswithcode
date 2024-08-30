@@ -1,0 +1,36 @@
+@prefix search: <http://www.metaphacts.com/ontologies/platform/service/search/> .
+@prefix pathfinder: <http://www.metaphacts.com/ontologies/platform/service/pathfinder/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix config: <tag:rdf4j.org,2023:config/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix mph: <http://www.metaphacts.com/ontologies/platform/repository#> .
+@prefix ephedra: <http://www.metaphacts.com/ontologies/platform/ephedra#> .
+
+[] a config:Repository;
+  config:rep.id "defaultEphedra";
+  config:rep.impl [
+      config:rep.type "metaphacts:EphedraRepository";
+      ephedra:serviceMember [
+          ephedra:delegateRepositoryID "pathfinder";
+          ephedra:serviceReference <http://www.metaphacts.com/ontologies/platform/service/pathfinder>
+        ], [
+          ephedra:delegateRepositoryID "namedGraphs";
+          ephedra:serviceReference <http://www.metaphacts.com/ontologies/platform/service/namedGraphs>
+        ], [
+          ephedra:delegateRepositoryID "lookup";
+          ephedra:serviceReference <http://www.metaphacts.com/ontologies/repository#lookup>
+        ], [
+          ephedra:delegateRepositoryID "keywordSearch";
+          ephedra:serviceReference <http://www.metaphacts.com/ontologies/platform/service/keywordSearch>
+        ], [
+          ephedra:delegateRepositoryID "entityLookup";
+          ephedra:serviceReference <http://www.metaphacts.com/ontologies/platform/service/entityLookup>
+        ], [
+          ephedra:delegateRepositoryID "label";
+          ephedra:serviceReference <http://www.metaphacts.com/ontologies/platform/service/label>
+        ];
+      ephedra:defaultMember "proxyToDefault";
+      ephedra:passthroughServiceIRI <repository:semopenalex>, <repository:linkedpaperswithcode>,
+        <repository:cs-kg>;
+      ephedra:writable true
+    ] .

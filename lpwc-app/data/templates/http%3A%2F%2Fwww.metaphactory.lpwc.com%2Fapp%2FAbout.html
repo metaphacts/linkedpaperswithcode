@@ -1,0 +1,259 @@
+<div class="page soa">
+  <div style='padding: 10px; font-size:15px;'>
+
+
+    <div style='margin:auto;width:922px;padding-top:16px;'>
+      <b>What exactly do we provide?</b>
+      <div style='margin-top:8px;'>
+        <ol>
+          <li>A semantic search interface to access, search and visualize the Linked Papers With Code data in real time.</li>
+          <li>Periodically updated <semantic-link iri='http://www.metaphactory.lpwc.com/app/RDFDumps'>RDF Dump files</semantic-link> of Linked Papers With Code.</li>
+          <li>URI Resolution of Linked Papers With Code within the Linked Open Data Cloud.</li>
+          <li>A publicly accessible <a href='/sparql' target='_blank'>SPARQL endpoint</a> containing the latest
+            Linked Papers With Code data.</li>
+          <li>Pre-trained entity and relation <a href='https://zenodo.org/records/10554617' target='_blank'>Knowledge Graph Embeddings</a>.</li>
+        </ol>
+      </div>
+    </div>
+
+    <div style='margin:auto;width:922px;padding-top:16px;'>
+      <b>How large is Linked Papers With Code?</b>
+      <div style='margin-top:8px;'>
+        <bs-row>
+          <bs-col md="6">
+            {{>::count-entity type='https://linkedpaperswithcode.com/class/paper' image='/assets/images/essay.png'
+            label='Papers'}}
+            {{>::count-entity type='https://linkedpaperswithcode.com/class/repository' image='/assets/images/web-development.png'
+            label='Repositories'}}
+            {{>::count-entity type='https://linkedpaperswithcode.com/class/evaluation' image='/assets/images/data.png'
+            label='Evaluations'}}
+            {{>::count-entity type='https://linkedpaperswithcode.com/class/model' image='/assets/images/machine-learning.png'
+            label='Models'}}
+          </bs-col>
+          <bs-col md="6">
+            {{>::count-entity type='https://linkedpaperswithcode.com/class/dataset' image='/assets/images/server-control.png'
+            label='Datasets'}}
+            {{>::count-entity type='https://linkedpaperswithcode.com/class/task' image='/assets/images/planning.png'
+            label='Tasks'}}
+            {{>::count-entity type='https://linkedpaperswithcode.com/class/method' image='/assets/images/solution.png'
+            label='Methods'}}
+            {{>::count-entity type='https://linkedpaperswithcode.com/class/conference' image='/assets/images/conference.png'
+            label='Conferences'}}
+          </bs-col>
+        </bs-row>
+      </div>
+    </div>
+
+      <div style='margin:auto;width:922px;padding-top:16px;'>
+  <b>Potential use cases</b>
+  <div style='margin-top:8px;'>
+    <ul>
+      <li><b>Machine Learning Data Analysis:</b> LPWC is a novel scientific knowledge graph covering the current field of machine learning. Complex analyses, such as comparing conferences or detecting new research topics, become possible in this way.</li>
+      <li><b>Scholarly LOD Cloud Enrichment:</b> LPWC is highly integrated with the LOD Cloud and connected to multiple data sources, allowing data integration and enhanced research data management according to the FAIR principles.</li>
+      <li><b>Academic Recommender Systems:</b> Given the information overload in science, scientific recommender systems are becoming increasingly important. LPWC with its embeddings provides the basis to recommend key scientific content.</li>
+    </ul>
+  </div>
+</div>
+
+
+    <div style='margin:auto;width:922px;padding-top:16px;'>
+      <b>Ontology and Linked Dataset Descriptions</b>
+      <div style='margin-top:8px;'>
+        <ul>
+          <li>
+            <a href='?uri=https%3A%2F%2Flinkedpaperswithcode.com%2Fontology%23'
+              target='_blank'>Linked Papers With Code Ontology</a>
+          </li>
+          <li>
+            <a href='https://zenodo.org/records/10479729/files/linkedpaperswithcode-ontology.owl?download=1'
+              target='_blank'>OWL file</a>
+          </li>
+          <li><a href='https://zenodo.org/records/10479729/files/linkedpaperswithcode-void.ttl?download=1'
+              target='_blank'>VoID file</a></li>
+        </ul>
+      </div>
+    </div>
+
+
+    <div style='margin:auto;width:922px;padding-top:16px;'>
+      <b>Example SPARQL queries</b>
+      <div style='margin-top:8px;'>
+
+        The 50 most used tasks from NAACL Papers (descending listed):
+
+        <mp-code-block mode='text/turtle'>
+PREFIX lpwc: &lt;https://linkedpaperswithcode.com/property/>
+PREFIX foaf: &lt;http://xmlns.com/foaf/0.1/>
+PREFIX dbp: &lt;http://dbpedia.org/property/>
+
+SELECT ?task ?taskName (COUNT(?taskName) AS ?count)
+WHERE {
+?paper a &lt;https://linkedpaperswithcode.com/class/paper> .
+?paper lpwc:hasConference ?conference .
+?conference dbp:acronym "NAACL"^^&lt;http://www.w3.org/2001/XMLSchema#string> .
+?paper lpwc:hasTask ?task .
+?task foaf:name ?taskName .
+}
+GROUP BY ?task ?taskName
+ORDER BY DESC(?count)
+LIMIT 50
+        </mp-code-block>
+
+         The ten most used data sets (descending listed):
+         <mp-code-block mode='text/turtle'>
+PREFIX lpwc: &lt;https://linkedpaperswithcode.com/property/>
+PREFIX dcterms: &lt;http://purl.org/dc/terms/>
+
+SELECT ?datasetTitle (COUNT(?paper) AS ?count)
+WHERE {
+?paper a &lt;https://linkedpaperswithcode.com/class/paper> .
+?dataset a &lt;https://linkedpaperswithcode.com/class/dataset> .
+?paper lpwc:usesDataset ?dataset .
+?dataset dcterms:title ?datasetTitle .
+}
+GROUP BY ?datasetTitle
+ORDER BY DESC(?count)
+LIMIT 10
+         
+</mp-code-block>
+
+         The most used frameworks from all repositories and the number how many repositories used it:
+
+<mp-code-block mode='text/turtle'>
+PREFIX lpwc: &lt;https://linkedpaperswithcode.com/property/>
+PREFIX dcterms: &lt;http://purl.org/dc/terms/>
+
+SELECT ?framework  (COUNT(?framework ) AS ?count)
+WHERE {
+?repository a &lt;https://linkedpaperswithcode.com/class/repository> .
+?repository lpwc:hasFramework ?framework .
+}
+GROUP BY ?framework
+ORDER BY DESC(?count)
+LIMIT 1
+
+</mp-code-block>
+
+
+         All datasets the paper “Language Models are Few-Shot Learners” used:
+         <mp-code-block mode='text/turtle'>
+PREFIX lpwc: &lt;https://linkedpaperswithcode.com/property/>
+PREFIX dcterms: &lt;http://purl.org/dc/terms/>
+
+SELECT ?dataset ?datasetTitle
+WHERE {
+?paper a &lt;https://linkedpaperswithcode.com/class/paper> .
+?paper dcterms:title "Language Models are Few-Shot Learners"^^&lt;http://www.w3.org/2001/XMLSchema#string> .
+?paper lpwc:usesDataset ?dataset .
+?dataset dcterms:title ?datasetTitle .
+}
+
+          </mp-code-block>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+
+<template-fragment id='count-entity'>
+
+  <semantic-query query='
+    PREFIX sys: <http://www.ontotext.com/owlim/system#>
+    SELECT (COUNT (*) as ?count) FROM sys:statistics {    
+        ?subject a <{{type}}>
+    }' 
+    template='{{> tmpl}}'
+  >
+    <template id='tmpl'>
+      {{#each bindings}}
+        <div style='margin:8px'>
+          <img src='{{../image}}' style="height: 40px;"/> {{count.value}} <i>{{../label}}</i>
+        </div>
+      {{/each}}
+    </template>
+  </semantic-query>
+</template-fragment>
+
+
+    <div style='margin:auto;width:922px;padding-top:16px;'>
+      <b>URI Resolution</b>
+      <div style='margin-top:8px;'>
+        The resources of Linked Papers With Code are resolvable via HTTP and content negotiation. In this way, the knowledge graph
+        is part of the Linked Open Data cloud.
+
+        Examples for URI resolution with curl:
+        <mp-code-block mode='text/turtle'>
+curl -H "Accept:text/nt" https://linkedpaperswithcode.com/paper/the-lovasz-softmax-loss-a-tractable-surrogate
+curl -H "Accept:text/n3" https://linkedpaperswithcode.com/dataset/20000-utterances
+curl -H "Accept:text/ttl" https://linkedpaperswithcode.com/dataset/cifar-10
+        </mp-code-block>
+
+      </div>
+    </div>
+
+
+<div style='margin:auto;width:922px;padding-top:16px;'>
+  <b>Connected Datasets</b>
+  <div style='margin-top:8px;'>
+    LPWC is highly integrated within the LOD Cloud and connected to multiple data sources, allowing data integration and enhanced research data management according to the FAIR principles.
+    For the Entity Templates we use these connections and enrich the presented data with additional information from:
+    <ul>
+      <li><b>SemOpenAlex: </b><a href='https://semopenalex.org' target='_blank'>https://semopenalex.org</a></li>
+      <li><b>Computer Science Knowledge Graph (CS-KG): </b></b><a href='http://w3id.org/cskg' target='_blank'>http://w3id.org/cskg</a></li>
+    </ul>
+  </div>
+</div>
+
+    <div style='margin:auto;width:922px;padding-top:16px;'>
+      <b>Code</b>
+
+      <div style='margin-top:8px;'>
+        The source code for creating Linked Papers With Code is available <a
+          href='https://github.com/davidlamprecht/linkedpaperswithcode' target='_blank'>here</a>. It
+        is licensed under the MIT License.
+      </div>
+
+    </div>
+
+        <div style='margin:auto;width:922px;padding-top:16px;'>
+      <b>License</b>
+      <div style='margin-top:8px;'>
+        The used data from <b><a href='https://github.com/paperswithcode/paperswithcode-data' target='_blank'>Papers with code datasets</a></b> is available under the <b><a href='https://creativecommons.org/licenses/by-sa/4.0/' target='_blank'>CC BY-SA 4.0 License</a></b>.
+        <br>
+        Linked Papers With Code (LPWC) is licensed under the <b><a href='https://creativecommons.org/licenses/by-sa/4.0/' target='_blank'>CC BY-SA 4.0 License</a></b>.
+        
+      </div>
+
+
+
+    <div style='margin:auto;width:922px;padding-top:16px;'>
+      <b>Reference & More Information</b>
+      <div style='margin-top:8px;'>
+        More information about Linked Papers With Code can be found in our ISWC 2023 paper:
+        <ul>
+          <li>
+            <b><a href='https://arxiv.org/pdf/2310.20475' target='_blank'>Linked Papers With Code: The Latest in Machine Learning as an RDF Knowledge Graph</a></b>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <div style='margin:auto;width:922px;padding-top:16px;'>
+      <b>Contact</b>
+      <div style='margin-top:8px;'>
+        The system has been designed and implemented by Michael Färber<sup>1</sup> and David
+        Lamprecht<sup>2</sup>.
+        Feel free to submit bug reports and feature requests on <a href='https://github.com/davidlamprecht/linkedpaperswithcode/issues'target='_blank'>GitHub</a> and address questions and remarks via email to <a href='https://sites.google.com/view/michaelfaerber' target='_blank'>Michael Färber</a>
+        (michael.faerber@tu-dresden.de).
+      </div>
+      <div style='margin-top:8px;'>
+        <sup>1</sup>ScaDS.AI & TU Dresden, Dresden, Germany<br>
+        <sup>2</sup>metaphacts GmbH, Walldorf, Germany
+      </div>
+
+    </div>
+
+    <p></p>
+
+

@@ -1,0 +1,636 @@
+<template-fragment
+  id='entityInfo'
+  export
+>
+  <semantic-search-query-universal-entity-infos iri='{{iri}}' type='{{type}}' kind='{{kind}}' default-visualization='{
+    "disambiguation": {
+      "template": "{{> disambiguationDefaultTemplate}}"
+    },
+    "results": {
+      "template": "{{> resultsDefaultTemplate}}"
+    }
+  }'>
+    <template id='disambiguationDefaultTemplate'>
+      <mp-description iri='{{iri}}' template='{{> descriptionTemplate}}'>
+        <template id='descriptionTemplate'>
+          <span class='separator'></span>
+          <span class='SearchQueryUniversal--description'>
+            <mp-highlight highlight='{{searchKeyword}}' split-token='true'>
+              {{description}}
+            </mp-highlight>
+          </span>
+        </template>
+      </mp-description>
+    </template>
+    <template id='resultsDefaultTemplate'>
+      <mp-description iri='{{iri}}' template='{{> disambiguationTemplate}}'>
+        <template id='disambiguationTemplate'>
+          <div class='SearchCardResult--content'>
+            <mp-highlight highlight='{{searchKeyword}}' split-token='true'>
+              {{description}}
+            </mp-highlight>
+          </div>
+        </template>
+      </mp-description>
+    </template>
+
+
+    [[!--
+    Provide additional information for different types with the semantic-search-query-universal-entity-info
+    component:
+    --]]
+
+    <semantic-search-query-universal-entity-info
+      for='https://linkedpaperswithcode.com/class/paper'
+      visualization='{
+        "disambiguation": {
+          "query": "SELECT ?abstract ?date ?filhasConference WHERE {
+            OPTIONAL{?subject <http://purl.org/dc/terms/abstract> ?abstract.}
+            OPTIONAL{?subject <http://purl.org/dc/terms/date> ?date.}
+            OPTIONAL{?subject <https://linkedpaperswithcode.com/property/hasConference> ?hasConference.}
+          }",
+          "template": "{{> disambiguation}}"
+        },
+        "results": {
+          "query": "Select distinct * from <http://kira.metaphacts.net/LPWC> where {
+                      ?subject a <https://linkedpaperswithcode.com/class/paper>.
+                      OPTIONAL{?subject <http://purl.org/dc/terms/abstract> ?abstract.}
+                      OPTIONAL{?subject <http://purl.org/dc/terms/date> ?date.}
+                      OPTIONAL{?subject <https://linkedpaperswithcode.com/property/hasConference> ?hasConference.}
+                    }",
+          "template": "{{> resultsTemplate}}"
+        }
+      }'
+    >
+      <template id='disambiguation'>
+        {{#each bindings}}
+          <span class='separator'></span>
+          <div>
+            {{#if abstract}}
+              <div>Abstract: <span>{{abstract.value}}</span></div>
+            {{/if}}
+            {{#if date}}
+              <div>Publication date: {{date.value}}</div>
+            {{/if}}
+            {{#if filed}}
+              <div>Filed: {{filed.value}}</div>
+            {{/if}}
+            {{#if filhasConference}}
+              <div>Has Conference: {{filhasConference.value}}</div>
+            {{/if}}
+          </div>
+        {{/each}}
+      </template>
+      <template id='resultsTemplate'>
+        <semantic-query
+          query='
+            PREFIX foaf: <http://xmlns.com/foaf/0.1/>
+            PREFIX person: <http://example.com/person/> 
+            SELECT * WHERE { <{{subject.value}}> <http://purl.org/dc/terms/creator> ?creator . }
+          '
+          template="{{> template}}"
+        >
+          <template id="template">
+
+            <div style='display: flex;'><b>Creators:</b> {{#each bindings}}<semantic-context repository='semopenalex'>
+                <span style='margin-right: 0px;margin-left: 4px'>
+                  <semantic-link iri='{{creator.value}}'></semantic-link>
+                </span></semantic-context>{{#unless @last}}, {{/unless}}{{/each}}</div>
+          </template>
+        </semantic-query>
+        {{#each bindings}}
+        {{#if date}}<div><b>Date: </b>{{date.value}}</div>{{/if}}
+        {{#if hasConference}}<div><b>Conference: </b>
+          <semantic-link iri='{{hasConference.value}}'></semantic-link>
+        </div>{{/if}}
+        {{#if abstract}}<div><b>Abstract: </b>{{abstract.value}}</div>{{/if}}
+
+        {{/each}}
+      </template>
+    </semantic-search-query-universal-entity-info>
+    <semantic-search-query-universal-entity-info
+      for='https://linkedpaperswithcode.com/class/dataset'
+      visualization='{
+        "disambiguation": {
+          "query": "SELECT * WHERE {                       ?subject a <https://linkedpaperswithcode.com/class/dataset>.
+                      OPTIONAL{?subject <http://purl.org/dc/terms/description> ?description.}
+                      OPTIONAL{?subject <http://purl.org/dc/terms/issued> ?issued.} }",
+          "template": "{{> disambiguationTemplate}}"
+        },
+        "results": {
+          "query": "Select distinct * from <http://kira.metaphacts.net/LPWC> where {
+                      ?subject a <https://linkedpaperswithcode.com/class/dataset>.
+                      OPTIONAL{?subject <http://purl.org/dc/terms/description> ?description.}
+                      OPTIONAL{?subject <http://purl.org/dc/terms/issued> ?issued.}
+                    }",
+          "template": "{{> resultsTemplate}}"
+        }
+      }'
+    >
+      <template id='disambiguationTemplate'>
+        <span class='separator'></span>
+        test
+        {{#each bindings}} <mp-highlight highlight='{{../searchKeyword}}' split-token='true'>{{description.value}}</mp-highlight>{{/each}}
+      </template>
+      <template id='resultsTemplate'>
+        <semantic-query
+          query='
+            PREFIX foaf: <http://xmlns.com/foaf/0.1/>
+            PREFIX person: <http://example.com/person/> 
+            SELECT * WHERE { <{{subject.value}}> <https://linkedpaperswithcode.com/property/usedForTask> ?usedForTask . }
+          '
+          template="{{> template}}"
+        >
+          <template id="template">
+
+            <div style='display: flex;'><b>Used for tasks: </b> {{#each bindings}}<semantic-context><span
+                  style='margin-right: 0px;margin-left: 4px'
+                >
+                  <semantic-link iri='{{usedForTask.value}}'></semantic-link>
+                </span></semantic-context>{{#unless @last}}, {{/unless}}{{/each}}</div>
+          </template>
+        </semantic-query>
+        <semantic-query
+          query='
+            PREFIX foaf: <http://xmlns.com/foaf/0.1/>
+            PREFIX person: <http://example.com/person/> 
+            SELECT * WHERE { <{{subject.value}}> <http://purl.org/dc/terms/language> ?language . }
+          '
+          template="{{> template}}"
+        >
+          <template id="template">
+
+            <div style='display: flex;'><b>Languages: </b> {{#each bindings}}<span
+                style='margin-right: 0px;margin-left: 4px'
+              >{{language.value}}</span>{{#unless @last}}, {{/unless}}{{/each}}</div>
+          </template>
+        </semantic-query>
+        {{#each bindings}}
+        {{#if issued}}<div><b>Issued: </b>{{issued.value}}</div>{{/if}}
+        {{#if language}}<div><b>Language: </b>
+          <semantic-link iri='{{language.value}}'></semantic-link>
+        </div>{{/if}}
+        {{#if description}}<div><b>Description: </b>{{description.value}}</div>{{/if}}
+
+        {{/each}}
+      </template>
+    </semantic-search-query-universal-entity-info>
+    <semantic-search-query-universal-entity-info
+      for='https://linkedpaperswithcode.com/class/task'
+      visualization='{
+        "disambiguation": {
+          "query": "SELECT * WHERE { ?subject <http://purl.org/dc/terms/abstract> ?abstract . }",
+          "template": "{{> disambiguationTemplate}}"
+        },
+        "results": {
+          "query": "Select distinct * from <http://kira.metaphacts.net/LPWC> where {
+                      ?subject a <https://linkedpaperswithcode.com/class/task>.
+                      OPTIONAL{?subject <http://purl.org/dc/terms/description> ?description.}
+                    }",
+          "template": "{{> resultsTemplate}}"
+        }
+      }'
+    >
+      <template id='disambiguationTemplate'>
+
+      </template>
+      <template id='resultsTemplate'>
+        <semantic-query
+          query='
+            PREFIX foaf: <http://xmlns.com/foaf/0.1/>
+            PREFIX person: <http://example.com/person/> 
+            SELECT * WHERE { <{{subject.value}}> <http://dbpedia.org/property/area> ?area . }
+          '
+          template="{{> template}}"
+        >
+          <template id="template">
+
+            <div style='display: flex;'><b>Area: </b> {{#each bindings}}<semantic-context><span
+                  style='margin-right: 0px;margin-left: 4px'
+                >
+                  <semantic-link iri='{{area.value}}'></semantic-link>
+                </span></semantic-context>{{#unless @last}}, {{/unless}}{{/each}}</div>
+          </template>
+        </semantic-query>
+
+        {{#each bindings}}
+        {{#if description}}<div><b>Description: </b>{{description.value}}</div>{{/if}}
+
+        {{/each}}
+      </template>
+    </semantic-search-query-universal-entity-info>
+    <semantic-search-query-universal-entity-info
+      for='https://linkedpaperswithcode.com/class/dataloader'
+      visualization='{
+        "disambiguation": {
+          "query": "SELECT * WHERE { ?subject <http://purl.org/dc/terms/abstract> ?abstract . }",
+          "template": "{{> disambiguationTemplate}}"
+        },
+        "results": {
+          "query": "Select distinct * from <http://kira.metaphacts.net/LPWC> where {
+                      ?subject a <https://linkedpaperswithcode.com/class/dataloader>.
+                      OPTIONAL{?subject <http://xmlns.com/foaf/0.1/homepage> ?homepage}
+                      OPTIONAL{?subject <https://linkedpaperswithcode.com/property/hasRepository> ?hasRepository.}
+                    }",
+          "template": "{{> resultsTemplate}}"
+        }
+      }'
+    >
+      <template id='disambiguationTemplate'>
+
+      </template>
+      <template id='resultsTemplate'>
+        {{#each bindings}}
+        {{#if hasRepository}}<div><b>Repository: </b>
+          <semantic-link iri='{{hasRepository.value}}'></semantic-link>
+        </div>{{/if}}
+        {{#if homepage}}<div><b>Homepage: </b><a href='{{homepage.value}}'>{{homepage.value}}</a></div>{{/if}}
+
+        {{/each}}
+      </template>
+    </semantic-search-query-universal-entity-info>
+    <semantic-search-query-universal-entity-info
+      for='https://linkedpaperswithcode.com/class/evaluationresult'
+      visualization='{
+        "disambiguation": {
+          "query": "SELECT * WHERE { ?subject <http://purl.org/dc/terms/abstract> ?abstract . }",
+          "template": "{{> disambiguationTemplate}}"
+        },
+        "results": {
+          "query": "Select distinct * from <http://kira.metaphacts.net/LPWC> where {
+                      ?subject a <https://linkedpaperswithcode.com/class/evaluationresult>.
+                      OPTIONAL{?subject <https://linkedpaperswithcode.com/property/metricValue> ?metricValue}
+                      OPTIONAL{?subject <https://linkedpaperswithcode.com/property/usesExtraTrainingData> ?usesExtraTrainingData.}
+                    }",
+          "template": "{{> resultsTemplate}}"
+        }
+      }'
+    >
+      <template id='disambiguationTemplate'>
+
+      </template>
+      <template id='resultsTemplate'>
+        {{#each bindings}}
+        {{#if metricValue}}<div><b>Metricvalue: </b> {{metricValue.value}}</div>{{/if}}
+        {{#if usesExtraTrainingData}}<div><b>Uses extra trainingdata: </b>{{usesExtraTrainingData.value}}</div>{{/if}}
+        {{/each}}
+      </template>
+    </semantic-search-query-universal-entity-info>
+    <semantic-search-query-universal-entity-info
+      for='https://linkedpaperswithcode.com/class/method'
+      visualization='{
+        "disambiguation": {
+          "query": "SELECT * WHERE { ?subject <http://purl.org/dc/terms/abstract> ?abstract . }",
+          "template": "{{> disambiguationTemplate}}"
+        },
+        "results": {
+          "query": "Select distinct * from <http://kira.metaphacts.net/LPWC> where {
+                      ?subject a <https://linkedpaperswithcode.com/class/method>.
+                      OPTIONAL{?subject <http://purl.org/dc/terms/description> ?description.}
+                      OPTIONAL{?subject <https://linkedpaperswithcode.com/property/numberPapers> ?numberPapers.}
+                      OPTIONAL{?subject <https://linkedpaperswithcode.com/property/introducedYear> ?introducedYear}
+                      OPTIONAL{?subject <https://linkedpaperswithcode.com/property/introducedBy> ?introducedBy}
+                      OPTIONAL{?subject <https://linkedpaperswithcode.com/property/codeSnippet> ?codeSnippet}
+                    }",
+          "template": "{{> resultsTemplate}}"
+        }
+      }'
+    >
+      <template id='disambiguationTemplate'>
+
+      </template>
+      <template id='resultsTemplate'>
+        <semantic-query
+          query='
+            PREFIX foaf: <http://xmlns.com/foaf/0.1/>
+            PREFIX person: <http://example.com/person/> 
+            SELECT * WHERE { <{{subject.value}}> <http://dbpedia.org/property/category> ?category . }
+          '
+          template="{{> template}}"
+        >
+          <template id="template">
+
+            <div style='display: flex;'><b>Categories: </b> {{#each bindings}}<semantic-context><span
+                  style='margin-right: 0px;margin-left: 4px'
+                >
+                  <semantic-link iri='{{category.value}}'></semantic-link>
+                </span></semantic-context>{{#unless @last}}, {{/unless}}{{/each}}</div>
+          </template>
+        </semantic-query>
+        {{#each bindings}}
+        {{#if description}}<div><b>Description: </b>{{description.value}}</div>{{/if}}
+        {{#if numberPapers}}<div><b>Number of papers: </b>{{numberPapers.value}}</div>{{/if}}
+        {{#if introducedYear}}<div><b>Year of introduction: </b>{{introducedYear.value}}</div>{{/if}}
+        {{#if introducedBy}}<div><b>Introduced by: </b>
+          <semantic-link iri='{{introducedBy.value}}'></semantic-link>
+        </div>{{/if}}
+        {{#if codeSnippet}}<div><b>Code Snippet: </b><a href='{{codeSnippet.value}}'>{{codeSnippet.value}}</a>></div>
+        {{/if}}
+
+        {{/each}}
+      </template>
+    </semantic-search-query-universal-entity-info>
+    <semantic-search-query-universal-entity-info
+      for='https://linkedpaperswithcode.com/class/category'
+      visualization='{
+        "disambiguation": {
+          "query": "SELECT * WHERE { ?subject <http://purl.org/dc/terms/abstract> ?abstract . }",
+          "template": "{{> disambiguationTemplate}}"
+        },
+        "results": {
+          "query": "Select distinct * from <http://kira.metaphacts.net/LPWC> where {
+                      ?subject a <https://linkedpaperswithcode.com/class/category>.
+                      OPTIONAL{?subject <http://www.w3.org/2000/01/rdf-schema#comment> ?comment.}
+                    }",
+          "template": "{{> resultsTemplate}}"
+        }
+      }'
+    >
+      <template id='disambiguationTemplate'>
+
+      </template>
+      <template id='resultsTemplate'>
+        <semantic-query
+          query='
+            PREFIX foaf: <http://xmlns.com/foaf/0.1/>
+            PREFIX person: <http://example.com/person/> 
+            SELECT * WHERE { <{{subject.value}}> <http://dbpedia.org/property/area> ?area . }
+          '
+          template="{{> template}}"
+        >
+          <template id="template">
+
+            <div style='display: flex;'><b>Categories: </b> {{#each bindings}}<semantic-context><span
+                  style='margin-right: 0px;margin-left: 4px'
+                >
+                  <semantic-link iri='{{area.value}}'></semantic-link>
+                </span></semantic-context>{{#unless @last}}, {{/unless}}{{/each}}</div>
+          </template>
+        </semantic-query>
+        {{#each bindings}}{{comment.value}}
+        {{#if comment}}<div><b>Comment: </b>{{comment.value}}</div>{{/if}}
+        {{/each}}
+      </template>
+    </semantic-search-query-universal-entity-info>
+    <semantic-search-query-universal-entity-info
+      for='https://linkedpaperswithcode.com/class/evaluation'
+      visualization='{
+        "disambiguation": {
+          "query": "SELECT * WHERE { ?subject <http://purl.org/dc/terms/abstract> ?abstract . }",
+          "template": "{{> disambiguationTemplate}}"
+        },
+        "results": {
+          "query": "Select distinct * from <http://kira.metaphacts.net/LPWC> where {
+                      ?subject a <https://linkedpaperswithcode.com/class/evaluation>.
+                    }",
+          "template": "{{> resultsTemplate}}"
+        }
+      }'
+    >
+      <template id='disambiguationTemplate'>
+
+      </template>
+      <template id='resultsTemplate'>
+        <semantic-query
+          query='
+            PREFIX foaf: <http://xmlns.com/foaf/0.1/>
+            PREFIX person: <http://example.com/person/> 
+            SELECT * WHERE { <{{subject.value}}> <https://linkedpaperswithcode.com/property/hasDataset> ?hasDataset . }
+          '
+          template="{{> template}}"
+        >
+          <template id="template">
+
+            <div style='display: flex;'><b>Has dataset: </b> {{#each bindings}}<semantic-context><span
+                  style='margin-right: 0px;margin-left: 4px'
+                >
+                  <semantic-link iri='{{hasDataset.value}}'></semantic-link>
+                </span></semantic-context>{{#unless @last}}, {{/unless}}{{/each}}</div>
+          </template>
+        </semantic-query>
+        <semantic-query
+          query='
+            PREFIX foaf: <http://xmlns.com/foaf/0.1/>
+            PREFIX person: <http://example.com/person/> 
+            SELECT * WHERE { <{{subject.value}}> <https://linkedpaperswithcode.com/property/hasEvaluationResult> ?hasEvaluationResult . }
+          '
+          template="{{> template}}"
+        >
+          <template id="template">
+
+            <div style='display: flex;'><b>Has valuation result: </b> {{#each bindings}}<semantic-context><span
+                  style='margin-right: 0px;margin-left: 4px'
+                >
+                  <semantic-link iri='{{hasEvaluationResult.value}}'></semantic-link>
+                </span></semantic-context>{{#unless @last}}, {{/unless}}{{/each}}</div>
+          </template>
+        </semantic-query>
+        <semantic-query
+          query='
+            PREFIX foaf: <http://xmlns.com/foaf/0.1/>
+            PREFIX person: <http://example.com/person/> 
+            SELECT * WHERE { <{{subject.value}}> <https://linkedpaperswithcode.com/property/hasModel> ?hasModel . }
+          '
+          template="{{> template}}"
+        >
+          <template id="template">
+
+            <div style='display: flex;'><b>Has Model: </b> {{#each bindings}}<semantic-context><span
+                  style='margin-right: 0px;margin-left: 4px'
+                >
+                  <semantic-link iri='{{hasModel.value}}'></semantic-link>
+                </span></semantic-context>{{#unless @last}}, {{/unless}}{{/each}}</div>
+          </template>
+        </semantic-query>
+        <semantic-query
+          query='
+            PREFIX foaf: <http://xmlns.com/foaf/0.1/>
+            PREFIX person: <http://example.com/person/> 
+            SELECT * WHERE { <{{subject.value}}> <https://linkedpaperswithcode.com/property/hasTask> ?hasTask . }
+          '
+          template="{{> template}}"
+        >
+          <template id="template">
+
+            <div style='display: flex;'><b>Has Task: </b> {{#each bindings}}<semantic-context><span
+                  style='margin-right: 0px;margin-left: 4px'
+                >
+                  <semantic-link iri='{{hasTask.value}}'></semantic-link>
+                </span></semantic-context>{{#unless @last}}, {{/unless}}{{/each}}</div>
+          </template>
+        </semantic-query>
+      </template>
+    </semantic-search-query-universal-entity-info>
+    <semantic-search-query-universal-entity-info
+      for='https://linkedpaperswithcode.com/class/repository'
+      visualization='{
+        "disambiguation": {
+          "query": "SELECT * WHERE { ?subject <http://purl.org/dc/terms/abstract> ?abstract . }",
+          "template": "{{> disambiguationTemplate}}"
+        },
+        "results": {
+          "query": "Select distinct * from <http://kira.metaphacts.net/LPWC> where {
+                      ?subject a <https://linkedpaperswithcode.com/class/repository>.
+                      OPTIONAL{?subject <http://purl.org/spar/fabio/hasURL> ?hasURL.}
+                    }",
+          "template": "{{> resultsTemplate}}"
+        }
+      }'
+    >
+      <template id='disambiguationTemplate'>
+
+      </template>
+      <template id='resultsTemplate'>
+
+        {{#each bindings}}{{comment.value}}
+        {{#if hasURL}}<div><b>Has URL: </b><a href='{{hasURL.value}}'>{{hasURL.value}}</a>></div>{{/if}}
+        {{/each}}
+      </template>
+    </semantic-search-query-universal-entity-info>
+    <semantic-search-query-universal-entity-info
+      for='https://linkedpaperswithcode.com/class/repositoryreferences'
+      visualization='{
+        "disambiguation": {
+          "query": "SELECT * WHERE { ?subject <http://purl.org/dc/terms/abstract> ?abstract . }",
+          "template": "{{> disambiguationTemplate}}"
+        },
+        "results": {
+          "query": "Select distinct * from <http://kira.metaphacts.net/LPWC> where {
+                      ?subject a <https://linkedpaperswithcode.com/class/repositoryreferences>.
+                      OPTIONAL{?subject <https://linkedpaperswithcode.com/property/hasRepository> ?hasRepository.}
+                      OPTIONAL{?subject <https://linkedpaperswithcode.com/property/paperMentionsRepository> ?paperMentionsRepository.}
+                      OPTIONAL{?subject <https://linkedpaperswithcode.com/property/repositoryMentionsPaper> ?repositoryMentionsPaper.}
+                    }",
+          "template": "{{> resultsTemplate}}"
+        }
+      }'
+    >
+      <template id='disambiguationTemplate'>
+
+      </template>
+      <template id='resultsTemplate'>
+
+        {{#each bindings}}{{comment.value}}
+        {{#if hasRepository}}<div><b>Has repository: </b><semantic-link iri='{{hasRepository.value}}'>{{hasRepository.value}}</semantic-link></div>{{/if}}
+        {{#if paperMentionsRepository}}<div><b>Paper mentions repository: </b> {{paperMentionsRepository.value}}</div>{{/if}}
+        {{#if repositoryMentionsPaper}}<div><b>Repository mentions paper: </b> {{repositoryMentionsPaper.value}}</div>{{/if}}
+        {{/each}}
+      </template>
+    </semantic-search-query-universal-entity-info>
+        <semantic-search-query-universal-entity-info
+      for='https://linkedpaperswithcode.com/class/conference'
+      visualization='{
+        "disambiguation": {
+          "query": "SELECT * WHERE { ?subject <http://purl.org/dc/terms/abstract> ?abstract . }",
+          "template": "{{> disambiguationTemplate}}"
+        },
+        "results": {
+          "query": "Select distinct * from <http://kira.metaphacts.net/LPWC> where {
+                      ?subject a <https://linkedpaperswithcode.com/class/conference>.
+                      OPTIONAL{?subject <http://dbpedia.org/property/acronym> ?acronym.}
+                      OPTIONAL{?subject <https://linkedpaperswithcode.com/property/dblpURL> ?dblpURL.}
+                    }",
+          "template": "{{> resultsTemplate}}"
+        }
+      }'
+    >
+      <template id='disambiguationTemplate'>
+
+      </template>
+      <template id='resultsTemplate'>
+
+        {{#each bindings}}{{comment.value}}
+        {{#if acronym}}<div><b>Acronym: </b> {{acronym.value}}</div>{{/if}}
+        {{#if dblpURL}}<div><b>Has URL: </b> <a href='{{dblpURL.value}}'> {{dblpURL.value}} </a></div>{{/if}}
+        {{/each}}
+      </template>
+    </semantic-search-query-universal-entity-info>
+  </semantic-search-query-universal-entity-infos>
+</template-fragment>
+[[!--
+Uncomment and modify this template to customize result cards:
+--]]
+[[!--
+<template-fragment
+  id='resultsTemplate'
+  export
+>
+  {{#if (isIri subject)}}
+  <div class='SearchCardResult--card'>
+    <div class='SearchCardResult--contentWrapper'>
+      <div class='SearchCardResult--title'>
+        {{#if (cond-eq showKnowledgePanel true)}}
+        <mp-popover class='resultKnowledgePanel'>
+          <mp-popover-trigger
+            placement='right'
+            trigger='["click"]'
+          >
+            <a
+              class="headline"
+              iri="{{subject.value}}"
+            >
+              <mp-highlight-label
+                iri='{{subject.value}}'
+                highlight='{{searchKeyword}}'
+                class='title'
+              ></mp-highlight-label>
+            </a>
+          </mp-popover-trigger>
+          <mp-popover-content>
+            <div>
+              <mp-knowledge-panel iri='{{subject.value}}'></mp-knowledge-panel>
+            </div>
+          </mp-popover-content>
+        </mp-popover>
+        <semantic-link
+          iri="{{subject.value}}"
+          class='navigateToResourceBtn'
+          title='Navigate to resource'
+        >
+          <span class="material-symbols-outlined">link</span>
+        </semantic-link>
+        {{else}}
+        <semantic-link iri="{{subject.value}}">
+          <mp-highlight-label
+            iri="{{subject.value}}"
+            highlight='{{searchKeyword}}'
+            split-token='true'
+          ></mp-highlight-label>
+        </semantic-link>
+        {{/if}}
+      </div>
+    </div>
+    <div class='SearchCardResult--buttons'>
+      {{> Platform:SearchResultsFragments::addToSearchButton subject=subject.value}}
+    </div>
+  </div>
+  {{else}}
+  <div class='SearchCardResult--card'>
+    <div class='SearchCardResult--contentWrapper'>
+      <div class='SearchCardResult--title'>
+        {{subject.value}}
+      </div>
+    </div>
+  </div>
+  {{/if}}
+</template-fragment>
+--]]
+
+[[!--
+Uncomment and modify this template to customize domain cards:
+--]]
+[[!--
+<template-fragment
+  id='domainCard'
+  export
+>
+  <button
+    type='button'
+    class='btn btn-secondary SearchQueryUniversal--domainCard {{#if selected}}SearchQueryUniversal--domainCardSelected{{/if}}'
+  >
+    {{> Platform:SearchResultsFragments::domainCardThumbnail}}
+    {{> Platform:SearchResultsFragments::domainCardLabel}}
+    {{> Platform:SearchResultsFragments::domainCardCount}}
+  </button>
+</template-fragment>
+--]]

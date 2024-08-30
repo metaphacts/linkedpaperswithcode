@@ -1,0 +1,81 @@
+<bs-navbar class='metaphacts-header-navbar navbar-logo-name' data-fixed='top' data-variant='dark' data-bg='primary' data-expand='md'
+  data-role='navigation'>
+  <div class='navbar-logo'>
+    <bs-navbar-brand data-href='{{page-publicPath}}/'>
+      <img src="{{page-publicPath}}/assets/images/lpwc-logo.png" alt="LPWC"/> 
+    </bs-navbar-brand>
+  </div>
+  <div class='navbar-name'>
+    <bs-navbar-brand data-href='{{page-publicPath}}/'>
+    </bs-navbar-brand>
+  </div>
+  {{#if systemNotificationMessage}}
+    <div class='navbar-system-message'>
+      {{!-- Use {{{systemNotificationMessage}}}, if you want not escape html--}}
+    	<strong>{{systemNotificationMessage}}</strong>
+    </div>
+  {{/if}}
+  <bs-navbar-toggle></bs-navbar-toggle>
+  <bs-navbar-collapse>
+    <ul class='nav mr-auto'></ul>
+    <ul class='nav navbar-nav'>
+      <bs-nav title='Search'>
+        <bs-nav-item>
+          <mp-resource-link-container propagate-link="true" iri='http://www.metaphacts.com/resource/SimpleSearch'>
+            <bs-nav-link><i class='fa fa-search'></i></bs-nav-link>
+          </mp-resource-link-container>
+        </bs-nav-item>
+      </bs-nav>
+      <mp-resource-link-container propagate-link="true" iri="http://www.metaphactory.lpwc.com/app/About">
+        <bs-nav-link>About</bs-nav-link>
+      </mp-resource-link-container>
+      <mp-has-permission permission='ui:page:sparql-editor'>
+        <bs-nav-item>
+          <mp-link class="nav-link" url='{{page-publicPath}}/sparql' title='Sparql Endpoint'>SPARQL</mp-link>
+        </bs-nav-item>
+      </mp-has-permission>
+      <mp-resource-link-container propagate-link="true" iri="https://linkedpaperswithcode.com/ontology#">
+        <bs-nav-link>Ontology</bs-nav-link>
+      </mp-resource-link-container>
+      <mp-resource-link-container propagate-link="true" iri="http://www.metaphactory.lpwc.com/app/RDFDumps">
+        <bs-nav-link>RDF Dumps</bs-nav-link>
+      </mp-resource-link-container>
+      <mp-resource-link-container propagate-link="true" iri="http://www.metaphactory.lpwc.com/app/Embeddings">
+        <bs-nav-link>Embeddings</bs-nav-link>
+      </mp-resource-link-container>
+      <bs-nav>
+        <bs-nav-dropdown title='Assets' id='assets-bg-nested-dropdown' data-align-right='true'>
+          <bs-dropdown-divider></bs-dropdown-divider>
+          <mp-resource-link-container propagate-link="true" iri='http://www.metaphacts.com/resource/assets/NamedGraphs'>
+            <bs-menu-item>Named Graphs</bs-menu-item>
+          </mp-resource-link-container>
+          <mp-resource-link-container propagate-link="true" iri='http://www.metaphacts.com/resource/assets/Ontologies'>
+            <bs-menu-item>Ontologies</bs-menu-item>
+          </mp-resource-link-container>
+          <bs-dropdown-divider></bs-dropdown-divider>
+          <mp-resource-link-container propagate-link="true" iri='http://www.metaphacts.com/resource/assets/Diagrams'>
+            <bs-menu-item>Diagrams</bs-menu-item>
+          </mp-resource-link-container>
+        </bs-nav-dropdown>
+        <mp-has-permission permission='pages:view:*'>
+          <bs-nav title='System Administration'>
+            <bs-nav-item>
+              <mp-resource-link-container propagate-link="true" iri='http://www.metaphacts.com/resource/admin/'>
+                <bs-nav-link><i class='fa fa-cog'></i></bs-nav-link>
+              </mp-resource-link-container>
+            </bs-nav-item>
+          </bs-nav>
+        </mp-has-permission>
+        <bs-nav title='Help'>
+          <bs-nav-item>
+            <mp-resource-link-container propagate-link="true" iri='http://help.metaphacts.com/resource/Documentation'>
+              <bs-nav-link><i class='fa fa-question-circle'></i></bs-nav-link>
+            </mp-resource-link-container>
+          </bs-nav-item>
+        </bs-nav>
+        <mp-nav-account></mp-nav-account>
+        <mp-user-language-switch></mp-user-language-switch>
+      </bs-nav>
+    </ul>
+  </bs-navbar-collapse>
+</bs-navbar>

@@ -1,0 +1,367 @@
+
+<http://localhost:10214/container/ontodiaDiagramContainer/default_diagram/context> {
+  <http://localhost:10214/container/ontodiaDiagramContainer/default_diagram> a <http://ontodia.org/schema/v1#Diagram>,
+      <http://www.w3.org/ns/prov#Entity>, <http://www.w3.org/ns/ldp#Resource>;
+    <http://ontodia.org/schema/v1#layoutData> _:genid-e1a7431d1b524678a03ea954f65f8856290-b0;
+    <http://ontodia.org/schema/v1#linkTypeOptions> _:genid-e1a7431d1b524678a03ea954f65f8856290-b29;
+    <http://www.metaphacts.com/ontologies/platform#diagramForOntology> <https://linkedpaperswithcode.com/ontology#>;
+    <http://www.metaphacts.com/ontologies/platform#diagramKind> <http://www.metaphacts.com/ontologies/platform#OntologyDiagram>;
+    <http://www.metaphacts.com/ontologies/platform#isDefaultDiagram> "true";
+    <http://www.w3.org/2000/01/rdf-schema#label> "Default Diagram";
+    <http://www.w3.org/ns/prov#wasAttributedTo> <http://www.metaphacts.com/resource/user/admin>;
+    <http://www.w3.org/ns/prov#generatedAtTime> "2024-06-24T09:53:57.071Z"^^<http://www.w3.org/2001/XMLSchema#dateTime> .
+  
+  _:genid-e1a7431d1b524678a03ea954f65f8856290-b0 a <http://ontodia.org/schema/v1#Layout>;
+    <http://ontodia.org/schema/v1#hasElement> <http://ontodia.org/data/e_cbea67243a3ce039dc18a573d30b6b66>,
+      <http://ontodia.org/data/e_c4b3ed21c62e241cde61d41b29e676bd>, <http://ontodia.org/data/e_220286da39bbfc288026a4d959e235fb>,
+      <http://ontodia.org/data/e_7fa42b3dda64b500f6421af49b6dc166>, <http://ontodia.org/data/e_a895a18b2d4cc9b5cf7b94547b3f6245>,
+      <http://ontodia.org/data/e_aca1810815cdf80d2de181223cc848d2>, <http://ontodia.org/data/e_a83e20cd60a0c77a455bc65010e9d3de>,
+      <http://ontodia.org/data/e_5b3adba3739f911cce1899ab6f4432ff>, <http://ontodia.org/data/e_730fbdcb633111128fd05e1fe8eae686>,
+      <http://ontodia.org/data/e_2fd11d9f401384fe99ac39b40070c6e4>, <http://ontodia.org/data/e_28884a478f738f914b48b045efe250a4>,
+      <http://ontodia.org/data/e_841580a57dc4d5b6abedec3b1ab00818>, <http://ontodia.org/data/e_8ced88d7f76b19910579e5b3d69ad59d>,
+      <http://ontodia.org/data/e_86b3f7739a8cf511b70b466193705ec6>;
+    <http://ontodia.org/schema/v1#hasLink> <http://ontodia.org/data/l_8eb5042c2d9d169071c8e80a265a354d>,
+      <http://ontodia.org/data/l_b96b61225b331a84bdbf56892099631f>, <http://ontodia.org/data/l_6c46085adc653d6779af6869e1bed05e>,
+      <http://ontodia.org/data/l_e67250377cbc821bfc1261098ca94a9d>, <http://ontodia.org/data/l_7bb4eac4a89388fd8aa045c96048feb5>,
+      <http://ontodia.org/data/l_63ba89b226545451e9ddd52afdc91322>, <http://ontodia.org/data/l_c837c6f5121ee0eaacdfc3d30e723768>,
+      <http://ontodia.org/data/l_596aa291996841a7234051a13ddc26e5>, <http://ontodia.org/data/l_8550ec00027bd736cc684cc42e7cc55f>,
+      <http://ontodia.org/data/l_3ffae25e329e1330a0aaadb915487f0f>, <http://ontodia.org/data/l_d14a68fa34c6b465e570fb8b64e9a210>,
+      <http://ontodia.org/data/l_c2e714fb7c5c24ca3825e7e0924acba3>, <http://ontodia.org/data/l_e115a72d024c18fa85fd16c9ff0b3450>,
+      <http://ontodia.org/data/l_1db2dd0bc52dc975223e7a7a1c4fb6a7>, <http://ontodia.org/data/l_8476783fbadf465096b2e5e2ccf9d52e>,
+      <http://ontodia.org/data/l_f48d5b6f921c1f8e6eb739e503db636a>, <http://ontodia.org/data/l_9b908645d271f44e54839f3f90973b46>,
+      <http://ontodia.org/data/l_c8f0d1d956dc6900c7230147f0065a92>, <http://ontodia.org/data/l_4f54817a073119a8751f64816d5629e8>,
+      <http://ontodia.org/data/l_7ae23906fa1458813638fa61c4a3365e>, <http://ontodia.org/data/l_38eaaf9723e109c405b2fa500552876c>,
+      <http://ontodia.org/data/l_e63e829e1870dc78025b692a561d0967>, <http://ontodia.org/data/l_9630fb72e0fdc775affa97f56fe752de>,
+      <http://ontodia.org/data/l_a141d21ea2718333f5c5509dd79bf98e>, <http://ontodia.org/data/l_71164af15843067d5ed4167b493f9c5e>,
+      <http://ontodia.org/data/l_276f51de92d877f5e95e75e7494810b2> .
+  
+  <http://ontodia.org/data/e_cbea67243a3ce039dc18a573d30b6b66> a <http://ontodia.org/schema/v1#Element>;
+    <http://ontodia.org/schema/v1#elementState> _:genid-e1a7431d1b524678a03ea954f65f8856290-b1;
+    <http://ontodia.org/schema/v1#isExpanded> true;
+    <http://ontodia.org/schema/v1#position> _:genid-e1a7431d1b524678a03ea954f65f8856290-b2;
+    <http://ontodia.org/schema/v1#resource> <https://linkedpaperswithcode.com/class/method> .
+  
+  _:genid-e1a7431d1b524678a03ea954f65f8856290-b2 <http://ontodia.org/schema/v1#xCoordValue>
+      -100;
+    <http://ontodia.org/schema/v1#yCoordValue> -468 .
+  
+  <http://ontodia.org/data/e_c4b3ed21c62e241cde61d41b29e676bd> a <http://ontodia.org/schema/v1#Element>;
+    <http://ontodia.org/schema/v1#elementState> _:genid-e1a7431d1b524678a03ea954f65f8856290-b3;
+    <http://ontodia.org/schema/v1#isExpanded> true;
+    <http://ontodia.org/schema/v1#position> _:genid-e1a7431d1b524678a03ea954f65f8856290-b4;
+    <http://ontodia.org/schema/v1#resource> <https://linkedpaperswithcode.com/class/paper> .
+  
+  _:genid-e1a7431d1b524678a03ea954f65f8856290-b4 <http://ontodia.org/schema/v1#xCoordValue>
+      287;
+    <http://ontodia.org/schema/v1#yCoordValue> -202 .
+  
+  <http://ontodia.org/data/e_220286da39bbfc288026a4d959e235fb> a <http://ontodia.org/schema/v1#Element>;
+    <http://ontodia.org/schema/v1#elementState> _:genid-e1a7431d1b524678a03ea954f65f8856290-b5;
+    <http://ontodia.org/schema/v1#isExpanded> true;
+    <http://ontodia.org/schema/v1#position> _:genid-e1a7431d1b524678a03ea954f65f8856290-b6;
+    <http://ontodia.org/schema/v1#resource> <https://semopenalex.org/class/Author> .
+  
+  _:genid-e1a7431d1b524678a03ea954f65f8856290-b6 <http://ontodia.org/schema/v1#xCoordValue>
+      218;
+    <http://ontodia.org/schema/v1#yCoordValue> 189 .
+  
+  <http://ontodia.org/data/e_7fa42b3dda64b500f6421af49b6dc166> a <http://ontodia.org/schema/v1#Element>;
+    <http://ontodia.org/schema/v1#elementState> _:genid-e1a7431d1b524678a03ea954f65f8856290-b7;
+    <http://ontodia.org/schema/v1#isExpanded> true;
+    <http://ontodia.org/schema/v1#position> _:genid-e1a7431d1b524678a03ea954f65f8856290-b8;
+    <http://ontodia.org/schema/v1#resource> <https://linkedpaperswithcode.com/class/repository> .
+  
+  _:genid-e1a7431d1b524678a03ea954f65f8856290-b8 <http://ontodia.org/schema/v1#xCoordValue>
+      -212;
+    <http://ontodia.org/schema/v1#yCoordValue> 67 .
+  
+  <http://ontodia.org/data/e_a895a18b2d4cc9b5cf7b94547b3f6245> a <http://ontodia.org/schema/v1#Element>;
+    <http://ontodia.org/schema/v1#elementState> _:genid-e1a7431d1b524678a03ea954f65f8856290-b9;
+    <http://ontodia.org/schema/v1#isExpanded> true;
+    <http://ontodia.org/schema/v1#position> _:genid-e1a7431d1b524678a03ea954f65f8856290-b10;
+    <http://ontodia.org/schema/v1#resource> <https://linkedpaperswithcode.com/class/area> .
+  
+  _:genid-e1a7431d1b524678a03ea954f65f8856290-b10 <http://ontodia.org/schema/v1#xCoordValue>
+      318;
+    <http://ontodia.org/schema/v1#yCoordValue> -865 .
+  
+  <http://ontodia.org/data/e_aca1810815cdf80d2de181223cc848d2> a <http://ontodia.org/schema/v1#Element>;
+    <http://ontodia.org/schema/v1#elementState> _:genid-e1a7431d1b524678a03ea954f65f8856290-b11;
+    <http://ontodia.org/schema/v1#isExpanded> true;
+    <http://ontodia.org/schema/v1#position> _:genid-e1a7431d1b524678a03ea954f65f8856290-b12;
+    <http://ontodia.org/schema/v1#resource> <https://linkedpaperswithcode.com/class/category> .
+  
+  _:genid-e1a7431d1b524678a03ea954f65f8856290-b12 <http://ontodia.org/schema/v1#xCoordValue>
+      0;
+    <http://ontodia.org/schema/v1#yCoordValue> -702 .
+  
+  <http://ontodia.org/data/e_a83e20cd60a0c77a455bc65010e9d3de> a <http://ontodia.org/schema/v1#Element>;
+    <http://ontodia.org/schema/v1#elementState> _:genid-e1a7431d1b524678a03ea954f65f8856290-b13;
+    <http://ontodia.org/schema/v1#isExpanded> true;
+    <http://ontodia.org/schema/v1#position> _:genid-e1a7431d1b524678a03ea954f65f8856290-b14;
+    <http://ontodia.org/schema/v1#resource> <https://linkedpaperswithcode.com/class/task> .
+  
+  _:genid-e1a7431d1b524678a03ea954f65f8856290-b14 <http://ontodia.org/schema/v1#xCoordValue>
+      418;
+    <http://ontodia.org/schema/v1#yCoordValue> -586 .
+  
+  <http://ontodia.org/data/e_5b3adba3739f911cce1899ab6f4432ff> a <http://ontodia.org/schema/v1#Element>;
+    <http://ontodia.org/schema/v1#elementState> _:genid-e1a7431d1b524678a03ea954f65f8856290-b15;
+    <http://ontodia.org/schema/v1#isExpanded> true;
+    <http://ontodia.org/schema/v1#position> _:genid-e1a7431d1b524678a03ea954f65f8856290-b16;
+    <http://ontodia.org/schema/v1#resource> <https://linkedpaperswithcode.com/class/dataset> .
+  
+  _:genid-e1a7431d1b524678a03ea954f65f8856290-b16 <http://ontodia.org/schema/v1#xCoordValue>
+      891;
+    <http://ontodia.org/schema/v1#yCoordValue> -742 .
+  
+  <http://ontodia.org/data/e_730fbdcb633111128fd05e1fe8eae686> a <http://ontodia.org/schema/v1#Element>;
+    <http://ontodia.org/schema/v1#elementState> _:genid-e1a7431d1b524678a03ea954f65f8856290-b17;
+    <http://ontodia.org/schema/v1#isExpanded> true;
+    <http://ontodia.org/schema/v1#position> _:genid-e1a7431d1b524678a03ea954f65f8856290-b18;
+    <http://ontodia.org/schema/v1#resource> <https://linkedpaperswithcode.com/class/dataloader> .
+  
+  _:genid-e1a7431d1b524678a03ea954f65f8856290-b18 <http://ontodia.org/schema/v1#xCoordValue>
+      540;
+    <http://ontodia.org/schema/v1#yCoordValue> -773 .
+  
+  <http://ontodia.org/data/e_2fd11d9f401384fe99ac39b40070c6e4> a <http://ontodia.org/schema/v1#Element>;
+    <http://ontodia.org/schema/v1#elementState> _:genid-e1a7431d1b524678a03ea954f65f8856290-b19;
+    <http://ontodia.org/schema/v1#isExpanded> true;
+    <http://ontodia.org/schema/v1#position> _:genid-e1a7431d1b524678a03ea954f65f8856290-b20;
+    <http://ontodia.org/schema/v1#resource> <https://linkedpaperswithcode.com/class/repositoryreferences> .
+  
+  _:genid-e1a7431d1b524678a03ea954f65f8856290-b20 <http://ontodia.org/schema/v1#xCoordValue>
+      -433;
+    <http://ontodia.org/schema/v1#yCoordValue> -182 .
+  
+  <http://ontodia.org/data/e_28884a478f738f914b48b045efe250a4> a <http://ontodia.org/schema/v1#Element>;
+    <http://ontodia.org/schema/v1#elementState> _:genid-e1a7431d1b524678a03ea954f65f8856290-b21;
+    <http://ontodia.org/schema/v1#isExpanded> true;
+    <http://ontodia.org/schema/v1#position> _:genid-e1a7431d1b524678a03ea954f65f8856290-b22;
+    <http://ontodia.org/schema/v1#resource> <https://linkedpaperswithcode.com/class/evaluation> .
+  
+  _:genid-e1a7431d1b524678a03ea954f65f8856290-b22 <http://ontodia.org/schema/v1#xCoordValue>
+      740;
+    <http://ontodia.org/schema/v1#yCoordValue> -85 .
+  
+  <http://ontodia.org/data/e_841580a57dc4d5b6abedec3b1ab00818> a <http://ontodia.org/schema/v1#Element>;
+    <http://ontodia.org/schema/v1#elementState> _:genid-e1a7431d1b524678a03ea954f65f8856290-b23;
+    <http://ontodia.org/schema/v1#isExpanded> true;
+    <http://ontodia.org/schema/v1#position> _:genid-e1a7431d1b524678a03ea954f65f8856290-b24;
+    <http://ontodia.org/schema/v1#resource> <https://linkedpaperswithcode.com/class/conference> .
+  
+  _:genid-e1a7431d1b524678a03ea954f65f8856290-b24 <http://ontodia.org/schema/v1#xCoordValue>
+      554;
+    <http://ontodia.org/schema/v1#yCoordValue> 189 .
+  
+  <http://ontodia.org/data/e_8ced88d7f76b19910579e5b3d69ad59d> a <http://ontodia.org/schema/v1#Element>;
+    <http://ontodia.org/schema/v1#elementState> _:genid-e1a7431d1b524678a03ea954f65f8856290-b25;
+    <http://ontodia.org/schema/v1#isExpanded> true;
+    <http://ontodia.org/schema/v1#position> _:genid-e1a7431d1b524678a03ea954f65f8856290-b26;
+    <http://ontodia.org/schema/v1#resource> <https://linkedpaperswithcode.com/class/model> .
+  
+  _:genid-e1a7431d1b524678a03ea954f65f8856290-b26 <http://ontodia.org/schema/v1#xCoordValue>
+      754;
+    <http://ontodia.org/schema/v1#yCoordValue> 58 .
+  
+  <http://ontodia.org/data/e_86b3f7739a8cf511b70b466193705ec6> a <http://ontodia.org/schema/v1#Element>;
+    <http://ontodia.org/schema/v1#elementState> _:genid-e1a7431d1b524678a03ea954f65f8856290-b27;
+    <http://ontodia.org/schema/v1#isExpanded> true;
+    <http://ontodia.org/schema/v1#position> _:genid-e1a7431d1b524678a03ea954f65f8856290-b28;
+    <http://ontodia.org/schema/v1#resource> <https://linkedpaperswithcode.com/class/evaluationresult> .
+  
+  _:genid-e1a7431d1b524678a03ea954f65f8856290-b28 <http://ontodia.org/schema/v1#xCoordValue>
+      1091;
+    <http://ontodia.org/schema/v1#yCoordValue> -10 .
+  
+  <http://ontodia.org/data/l_8eb5042c2d9d169071c8e80a265a354d> a <http://ontodia.org/schema/v1#Link>;
+    <http://ontodia.org/schema/v1#property> <http://www.metaphacts.com/metaschema#relation>;
+    <http://ontodia.org/schema/v1#resource> <http://ontodia.org/schema/v1#blank:rdf:c60a768b138dc809233f8021a4898>;
+    <http://ontodia.org/schema/v1#source> <http://ontodia.org/data/e_28884a478f738f914b48b045efe250a4>;
+    <http://ontodia.org/schema/v1#target> <http://ontodia.org/data/e_5b3adba3739f911cce1899ab6f4432ff>;
+    <http://ontodia.org/schema/v1#vertex> <http://www.w3.org/1999/02/22-rdf-syntax-ns#nil> .
+  
+  <http://ontodia.org/data/l_b96b61225b331a84bdbf56892099631f> a <http://ontodia.org/schema/v1#Link>;
+    <http://ontodia.org/schema/v1#property> <http://www.metaphacts.com/metaschema#relation>;
+    <http://ontodia.org/schema/v1#resource> <http://ontodia.org/schema/v1#blank:rdf:487277cbf9bf481d3fe6ef1609f3e9>;
+    <http://ontodia.org/schema/v1#source> <http://ontodia.org/data/e_5b3adba3739f911cce1899ab6f4432ff>;
+    <http://ontodia.org/schema/v1#target> <http://ontodia.org/data/e_c4b3ed21c62e241cde61d41b29e676bd>;
+    <http://ontodia.org/schema/v1#vertex> <http://www.w3.org/1999/02/22-rdf-syntax-ns#nil> .
+  
+  <http://ontodia.org/data/l_6c46085adc653d6779af6869e1bed05e> a <http://ontodia.org/schema/v1#Link>;
+    <http://ontodia.org/schema/v1#property> <http://www.metaphacts.com/metaschema#relation>;
+    <http://ontodia.org/schema/v1#resource> <http://ontodia.org/schema/v1#blank:rdf:862d0aa3f812eecf0ea65e71e1cdc>;
+    <http://ontodia.org/schema/v1#source> <http://ontodia.org/data/e_c4b3ed21c62e241cde61d41b29e676bd>;
+    <http://ontodia.org/schema/v1#target> <http://ontodia.org/data/e_7fa42b3dda64b500f6421af49b6dc166>;
+    <http://ontodia.org/schema/v1#vertex> <http://www.w3.org/1999/02/22-rdf-syntax-ns#nil> .
+  
+  <http://ontodia.org/data/l_e67250377cbc821bfc1261098ca94a9d> a <http://ontodia.org/schema/v1#Link>;
+    <http://ontodia.org/schema/v1#property> <http://www.metaphacts.com/metaschema#relation>;
+    <http://ontodia.org/schema/v1#resource> <http://ontodia.org/schema/v1#blank:rdf:499141b26e9d58427764e80a934fe3a>;
+    <http://ontodia.org/schema/v1#source> <http://ontodia.org/data/e_c4b3ed21c62e241cde61d41b29e676bd>;
+    <http://ontodia.org/schema/v1#target> <http://ontodia.org/data/e_7fa42b3dda64b500f6421af49b6dc166>;
+    <http://ontodia.org/schema/v1#vertex> <http://www.w3.org/1999/02/22-rdf-syntax-ns#nil> .
+  
+  <http://ontodia.org/data/l_7bb4eac4a89388fd8aa045c96048feb5> a <http://ontodia.org/schema/v1#Link>;
+    <http://ontodia.org/schema/v1#property> <http://www.metaphacts.com/metaschema#relation>;
+    <http://ontodia.org/schema/v1#resource> <http://ontodia.org/schema/v1#blank:rdf:2762dd4913eef63f3f1341562fa8ef>;
+    <http://ontodia.org/schema/v1#source> <http://ontodia.org/data/e_28884a478f738f914b48b045efe250a4>;
+    <http://ontodia.org/schema/v1#target> <http://ontodia.org/data/e_8ced88d7f76b19910579e5b3d69ad59d>;
+    <http://ontodia.org/schema/v1#vertex> <http://www.w3.org/1999/02/22-rdf-syntax-ns#nil> .
+  
+  <http://ontodia.org/data/l_63ba89b226545451e9ddd52afdc91322> a <http://ontodia.org/schema/v1#Link>;
+    <http://ontodia.org/schema/v1#property> <http://www.metaphacts.com/metaschema#relation>;
+    <http://ontodia.org/schema/v1#resource> <http://ontodia.org/schema/v1#blank:rdf:3ec4e059880e88f1dbdfe45c5ff7df>;
+    <http://ontodia.org/schema/v1#source> <http://ontodia.org/data/e_28884a478f738f914b48b045efe250a4>;
+    <http://ontodia.org/schema/v1#target> <http://ontodia.org/data/e_a83e20cd60a0c77a455bc65010e9d3de>;
+    <http://ontodia.org/schema/v1#vertex> <http://www.w3.org/1999/02/22-rdf-syntax-ns#nil> .
+  
+  <http://ontodia.org/data/l_c837c6f5121ee0eaacdfc3d30e723768> a <http://ontodia.org/schema/v1#Link>;
+    <http://ontodia.org/schema/v1#property> <http://www.metaphacts.com/metaschema#relation>;
+    <http://ontodia.org/schema/v1#resource> <http://ontodia.org/schema/v1#blank:rdf:33b80c3654eff361016960676f248e6>;
+    <http://ontodia.org/schema/v1#source> <http://ontodia.org/data/e_cbea67243a3ce039dc18a573d30b6b66>;
+    <http://ontodia.org/schema/v1#target> <http://ontodia.org/data/e_aca1810815cdf80d2de181223cc848d2>;
+    <http://ontodia.org/schema/v1#vertex> <http://www.w3.org/1999/02/22-rdf-syntax-ns#nil> .
+  
+  <http://ontodia.org/data/l_596aa291996841a7234051a13ddc26e5> a <http://ontodia.org/schema/v1#Link>;
+    <http://ontodia.org/schema/v1#property> <http://www.metaphacts.com/metaschema#relation>;
+    <http://ontodia.org/schema/v1#resource> <http://ontodia.org/schema/v1#blank:rdf:d7a19dadc887aa0c9502a61ab595a>;
+    <http://ontodia.org/schema/v1#source> <http://ontodia.org/data/e_cbea67243a3ce039dc18a573d30b6b66>;
+    <http://ontodia.org/schema/v1#target> <http://ontodia.org/data/e_aca1810815cdf80d2de181223cc848d2>;
+    <http://ontodia.org/schema/v1#vertex> <http://www.w3.org/1999/02/22-rdf-syntax-ns#nil> .
+  
+  <http://ontodia.org/data/l_8550ec00027bd736cc684cc42e7cc55f> a <http://ontodia.org/schema/v1#Link>;
+    <http://ontodia.org/schema/v1#property> <http://www.metaphacts.com/metaschema#relation>;
+    <http://ontodia.org/schema/v1#resource> <http://ontodia.org/schema/v1#blank:rdf:f28a1c864846df8994e860a617030>;
+    <http://ontodia.org/schema/v1#source> <http://ontodia.org/data/e_5b3adba3739f911cce1899ab6f4432ff>;
+    <http://ontodia.org/schema/v1#target> <http://ontodia.org/data/e_730fbdcb633111128fd05e1fe8eae686>;
+    <http://ontodia.org/schema/v1#vertex> <http://www.w3.org/1999/02/22-rdf-syntax-ns#nil> .
+  
+  <http://ontodia.org/data/l_3ffae25e329e1330a0aaadb915487f0f> a <http://ontodia.org/schema/v1#Link>;
+    <http://ontodia.org/schema/v1#property> <http://www.metaphacts.com/metaschema#relation>;
+    <http://ontodia.org/schema/v1#resource> <http://ontodia.org/schema/v1#blank:rdf:862d0aa3f812eecf0ea65e71e1cdc>;
+    <http://ontodia.org/schema/v1#source> <http://ontodia.org/data/e_2fd11d9f401384fe99ac39b40070c6e4>;
+    <http://ontodia.org/schema/v1#target> <http://ontodia.org/data/e_7fa42b3dda64b500f6421af49b6dc166>;
+    <http://ontodia.org/schema/v1#vertex> <http://www.w3.org/1999/02/22-rdf-syntax-ns#nil> .
+  
+  <http://ontodia.org/data/l_d14a68fa34c6b465e570fb8b64e9a210> a <http://ontodia.org/schema/v1#Link>;
+    <http://ontodia.org/schema/v1#property> <http://www.metaphacts.com/metaschema#relation>;
+    <http://ontodia.org/schema/v1#resource> <http://ontodia.org/schema/v1#blank:rdf:34fdb6729c189d6fed1ebfa60d45>;
+    <http://ontodia.org/schema/v1#source> <http://ontodia.org/data/e_aca1810815cdf80d2de181223cc848d2>;
+    <http://ontodia.org/schema/v1#target> <http://ontodia.org/data/e_a895a18b2d4cc9b5cf7b94547b3f6245>;
+    <http://ontodia.org/schema/v1#vertex> <http://www.w3.org/1999/02/22-rdf-syntax-ns#nil> .
+  
+  <http://ontodia.org/data/l_c2e714fb7c5c24ca3825e7e0924acba3> a <http://ontodia.org/schema/v1#Link>;
+    <http://ontodia.org/schema/v1#property> <http://www.metaphacts.com/metaschema#relation>;
+    <http://ontodia.org/schema/v1#resource> <http://ontodia.org/schema/v1#blank:rdf:487277cbf9bf481d3fe6ef1609f3e9>;
+    <http://ontodia.org/schema/v1#source> <http://ontodia.org/data/e_cbea67243a3ce039dc18a573d30b6b66>;
+    <http://ontodia.org/schema/v1#target> <http://ontodia.org/data/e_c4b3ed21c62e241cde61d41b29e676bd>;
+    <http://ontodia.org/schema/v1#vertex> <http://www.w3.org/1999/02/22-rdf-syntax-ns#nil> .
+  
+  <http://ontodia.org/data/l_e115a72d024c18fa85fd16c9ff0b3450> a <http://ontodia.org/schema/v1#Link>;
+    <http://ontodia.org/schema/v1#property> <http://www.metaphacts.com/metaschema#relation>;
+    <http://ontodia.org/schema/v1#resource> <http://ontodia.org/schema/v1#blank:rdf:61817314742264042c6332c203653c>;
+    <http://ontodia.org/schema/v1#source> <http://ontodia.org/data/e_5b3adba3739f911cce1899ab6f4432ff>;
+    <http://ontodia.org/schema/v1#target> <http://ontodia.org/data/e_a83e20cd60a0c77a455bc65010e9d3de>;
+    <http://ontodia.org/schema/v1#vertex> <http://www.w3.org/1999/02/22-rdf-syntax-ns#nil> .
+  
+  <http://ontodia.org/data/l_1db2dd0bc52dc975223e7a7a1c4fb6a7> a <http://ontodia.org/schema/v1#Link>;
+    <http://ontodia.org/schema/v1#property> <http://www.metaphacts.com/metaschema#relation>;
+    <http://ontodia.org/schema/v1#resource> <http://ontodia.org/schema/v1#blank:rdf:4cb45ee8497044786c617406e003e70>;
+    <http://ontodia.org/schema/v1#source> <http://ontodia.org/data/e_c4b3ed21c62e241cde61d41b29e676bd>;
+    <http://ontodia.org/schema/v1#target> <http://ontodia.org/data/e_841580a57dc4d5b6abedec3b1ab00818>;
+    <http://ontodia.org/schema/v1#vertex> <http://www.w3.org/1999/02/22-rdf-syntax-ns#nil> .
+  
+  <http://ontodia.org/data/l_8476783fbadf465096b2e5e2ccf9d52e> a <http://ontodia.org/schema/v1#Link>;
+    <http://ontodia.org/schema/v1#property> <http://www.metaphacts.com/metaschema#relation>;
+    <http://ontodia.org/schema/v1#resource> <http://ontodia.org/schema/v1#blank:rdf:201ee558ffe6568752279b07912f60>;
+    <http://ontodia.org/schema/v1#source> <http://ontodia.org/data/e_c4b3ed21c62e241cde61d41b29e676bd>;
+    <http://ontodia.org/schema/v1#target> <http://ontodia.org/data/e_2fd11d9f401384fe99ac39b40070c6e4>;
+    <http://ontodia.org/schema/v1#vertex> <http://www.w3.org/1999/02/22-rdf-syntax-ns#nil> .
+  
+  <http://ontodia.org/data/l_f48d5b6f921c1f8e6eb739e503db636a> a <http://ontodia.org/schema/v1#Link>;
+    <http://ontodia.org/schema/v1#property> <http://www.metaphacts.com/metaschema#relation>;
+    <http://ontodia.org/schema/v1#resource> <http://ontodia.org/schema/v1#blank:rdf:2ab1888b6cba7880d10e07a306a70>;
+    <http://ontodia.org/schema/v1#source> <http://ontodia.org/data/e_c4b3ed21c62e241cde61d41b29e676bd>;
+    <http://ontodia.org/schema/v1#target> <http://ontodia.org/data/e_5b3adba3739f911cce1899ab6f4432ff>;
+    <http://ontodia.org/schema/v1#vertex> <http://www.w3.org/1999/02/22-rdf-syntax-ns#nil> .
+  
+  <http://ontodia.org/data/l_9b908645d271f44e54839f3f90973b46> a <http://ontodia.org/schema/v1#Link>;
+    <http://ontodia.org/schema/v1#property> <http://www.metaphacts.com/metaschema#relation>;
+    <http://ontodia.org/schema/v1#resource> <http://ontodia.org/schema/v1#blank:rdf:33a50b43c2b08747d8c700c517573ec>;
+    <http://ontodia.org/schema/v1#source> <http://ontodia.org/data/e_a83e20cd60a0c77a455bc65010e9d3de>;
+    <http://ontodia.org/schema/v1#target> <http://ontodia.org/data/e_a83e20cd60a0c77a455bc65010e9d3de>;
+    <http://ontodia.org/schema/v1#vertex> <http://www.w3.org/1999/02/22-rdf-syntax-ns#nil> .
+  
+  <http://ontodia.org/data/l_c8f0d1d956dc6900c7230147f0065a92> a <http://ontodia.org/schema/v1#Link>;
+    <http://ontodia.org/schema/v1#property> <http://www.metaphacts.com/metaschema#relation>;
+    <http://ontodia.org/schema/v1#resource> <http://ontodia.org/schema/v1#blank:rdf:2762dd4913eef63f3f1341562fa8ef>;
+    <http://ontodia.org/schema/v1#source> <http://ontodia.org/data/e_c4b3ed21c62e241cde61d41b29e676bd>;
+    <http://ontodia.org/schema/v1#target> <http://ontodia.org/data/e_8ced88d7f76b19910579e5b3d69ad59d>;
+    <http://ontodia.org/schema/v1#vertex> <http://www.w3.org/1999/02/22-rdf-syntax-ns#nil> .
+  
+  <http://ontodia.org/data/l_4f54817a073119a8751f64816d5629e8> a <http://ontodia.org/schema/v1#Link>;
+    <http://ontodia.org/schema/v1#property> <http://www.metaphacts.com/metaschema#relation>;
+    <http://ontodia.org/schema/v1#resource> <http://ontodia.org/schema/v1#blank:rdf:34fdb6729c189d6fed1ebfa60d45>;
+    <http://ontodia.org/schema/v1#source> <http://ontodia.org/data/e_a83e20cd60a0c77a455bc65010e9d3de>;
+    <http://ontodia.org/schema/v1#target> <http://ontodia.org/data/e_a895a18b2d4cc9b5cf7b94547b3f6245>;
+    <http://ontodia.org/schema/v1#vertex> <http://www.w3.org/1999/02/22-rdf-syntax-ns#nil> .
+  
+  <http://ontodia.org/data/l_7ae23906fa1458813638fa61c4a3365e> a <http://ontodia.org/schema/v1#Link>;
+    <http://ontodia.org/schema/v1#property> <http://www.metaphacts.com/metaschema#relation>;
+    <http://ontodia.org/schema/v1#resource> <http://ontodia.org/schema/v1#blank:rdf:7c152fc06f357b02461c98488f8a8>;
+    <http://ontodia.org/schema/v1#source> <http://ontodia.org/data/e_c4b3ed21c62e241cde61d41b29e676bd>;
+    <http://ontodia.org/schema/v1#target> <http://ontodia.org/data/e_220286da39bbfc288026a4d959e235fb>;
+    <http://ontodia.org/schema/v1#vertex> <http://www.w3.org/1999/02/22-rdf-syntax-ns#nil> .
+  
+  <http://ontodia.org/data/l_38eaaf9723e109c405b2fa500552876c> a <http://ontodia.org/schema/v1#Link>;
+    <http://ontodia.org/schema/v1#property> <http://www.metaphacts.com/metaschema#relation>;
+    <http://ontodia.org/schema/v1#resource> <http://ontodia.org/schema/v1#blank:rdf:3ec4e059880e88f1dbdfe45c5ff7df>;
+    <http://ontodia.org/schema/v1#source> <http://ontodia.org/data/e_c4b3ed21c62e241cde61d41b29e676bd>;
+    <http://ontodia.org/schema/v1#target> <http://ontodia.org/data/e_a83e20cd60a0c77a455bc65010e9d3de>;
+    <http://ontodia.org/schema/v1#vertex> <http://www.w3.org/1999/02/22-rdf-syntax-ns#nil> .
+  
+  <http://ontodia.org/data/l_e63e829e1870dc78025b692a561d0967> a <http://ontodia.org/schema/v1#Link>;
+    <http://ontodia.org/schema/v1#property> <http://www.metaphacts.com/metaschema#relation>;
+    <http://ontodia.org/schema/v1#resource> <http://ontodia.org/schema/v1#blank:rdf:7a710b83d0810c846f1110af362c0>;
+    <http://ontodia.org/schema/v1#source> <http://ontodia.org/data/e_c4b3ed21c62e241cde61d41b29e676bd>;
+    <http://ontodia.org/schema/v1#target> <http://ontodia.org/data/e_cbea67243a3ce039dc18a573d30b6b66>;
+    <http://ontodia.org/schema/v1#vertex> <http://www.w3.org/1999/02/22-rdf-syntax-ns#nil> .
+  
+  <http://ontodia.org/data/l_9630fb72e0fdc775affa97f56fe752de> a <http://ontodia.org/schema/v1#Link>;
+    <http://ontodia.org/schema/v1#property> <http://www.metaphacts.com/metaschema#relation>;
+    <http://ontodia.org/schema/v1#resource> <http://ontodia.org/schema/v1#blank:rdf:862d0aa3f812eecf0ea65e71e1cdc>;
+    <http://ontodia.org/schema/v1#source> <http://ontodia.org/data/e_730fbdcb633111128fd05e1fe8eae686>;
+    <http://ontodia.org/schema/v1#target> <http://ontodia.org/data/e_7fa42b3dda64b500f6421af49b6dc166>;
+    <http://ontodia.org/schema/v1#vertex> <http://www.w3.org/1999/02/22-rdf-syntax-ns#nil> .
+  
+  <http://ontodia.org/data/l_a141d21ea2718333f5c5509dd79bf98e> a <http://ontodia.org/schema/v1#Link>;
+    <http://ontodia.org/schema/v1#property> <http://www.metaphacts.com/metaschema#relation>;
+    <http://ontodia.org/schema/v1#resource> <http://ontodia.org/schema/v1#blank:rdf:57edfaa077a38f0d5781f88911ce8>;
+    <http://ontodia.org/schema/v1#source> <http://ontodia.org/data/e_c4b3ed21c62e241cde61d41b29e676bd>;
+    <http://ontodia.org/schema/v1#target> <http://ontodia.org/data/e_28884a478f738f914b48b045efe250a4>;
+    <http://ontodia.org/schema/v1#vertex> <http://www.w3.org/1999/02/22-rdf-syntax-ns#nil> .
+  
+  <http://ontodia.org/data/l_71164af15843067d5ed4167b493f9c5e> a <http://ontodia.org/schema/v1#Link>;
+    <http://ontodia.org/schema/v1#property> <http://www.metaphacts.com/metaschema#relation>;
+    <http://ontodia.org/schema/v1#resource> <http://ontodia.org/schema/v1#blank:rdf:1e24eb086537743867b174e0c606210>;
+    <http://ontodia.org/schema/v1#source> <http://ontodia.org/data/e_aca1810815cdf80d2de181223cc848d2>;
+    <http://ontodia.org/schema/v1#target> <http://ontodia.org/data/e_aca1810815cdf80d2de181223cc848d2>;
+    <http://ontodia.org/schema/v1#vertex> <http://www.w3.org/1999/02/22-rdf-syntax-ns#nil> .
+  
+  <http://ontodia.org/data/l_276f51de92d877f5e95e75e7494810b2> a <http://ontodia.org/schema/v1#Link>;
+    <http://ontodia.org/schema/v1#property> <http://www.metaphacts.com/metaschema#relation>;
+    <http://ontodia.org/schema/v1#resource> <http://ontodia.org/schema/v1#blank:rdf:ce8c95c7b8321c3d180ec8bbe4ec>;
+    <http://ontodia.org/schema/v1#source> <http://ontodia.org/data/e_28884a478f738f914b48b045efe250a4>;
+    <http://ontodia.org/schema/v1#target> <http://ontodia.org/data/e_86b3f7739a8cf511b70b466193705ec6>;
+    <http://ontodia.org/schema/v1#vertex> <http://www.w3.org/1999/02/22-rdf-syntax-ns#nil> .
+  
+  _:genid-e1a7431d1b524678a03ea954f65f8856290-b29 a <http://ontodia.org/schema/v1#LinkTypeOptions>;
+    <http://ontodia.org/schema/v1#property> <http://www.metaphacts.com/metaschema#relation-owl>;
+    <http://ontodia.org/schema/v1#showLabel> true;
+    <http://ontodia.org/schema/v1#visible> false .
+  
+  <http://www.metaphacts.com/ontologies/platform#ontodiaDiagramContainer> <http://www.w3.org/ns/ldp#contains>
+      <http://localhost:10214/container/ontodiaDiagramContainer/default_diagram> .
+}

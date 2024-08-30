@@ -1,0 +1,393 @@
+<style>
+  .grid {
+    display: grid;
+    grid-template-rows: calc(100% - 58px) 42px;
+    grid-gap: 16px;
+  }
+
+  .single-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .panel {
+    display: flex;
+    flex-direction: column;
+    border-radius: 8px;
+    background-color: #FFFFFF;
+    box-shadow: 0 0 14px 0 rgba(0, 0, 0, 0.12);
+    height: 100%;
+  }
+
+  .ontodia-container {
+    flex: auto;
+    display: flex;
+    height: min(1000px, max(calc(100%), 500px));
+    min-height: min(1000px, max(calc(100%), 500px));
+    width: 100%;
+    max-height: 0;
+  }
+
+  .ontodia-workspace-container {
+    flex-grow: 1;
+    min-width: 50%;
+  }
+
+  .ontodia-knowledge-panel-container {
+    background-color: whitesmoke;
+    padding: 10px 10px 0px 0px;
+    max-width: 30%;
+  }
+
+  .ontodia-knowledge-panel-container .knowledge-panel-frame {
+    box-shadow: 0px 5px 13px 5px rgba(0, 0, 0, 0.12);
+    height: calc(100% - 10px);
+    transition: height 0.3s;
+    overflow: hidden;
+    margin-left: 0;
+    width: 380px;
+    max-width: 100%;
+  }
+
+  .knowledge-panel-frame .DataTable--global-filter-container {
+    width: 100%
+  }
+
+  .col {
+    box-shadow: 0 0 0px 1px rgb(0 0 0 / 20%);
+    border-radius: 8px;
+  }
+
+  .row {
+    margin: 0px;
+  }
+
+  .soa .header__title-sub {
+    font-size: 1.5rem;
+  }
+
+  .soa .header__title-name {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--soa-color-brown-darker);
+    line-height: 3.6rem;
+  }
+
+  .soa .card__title_3 {
+    font-size: 1.0rem;
+    color: var(--soa-color-brown-darker);
+    font-weight: 700;
+    padding-bottom: 0.2rem;
+  }
+</style>
+
+
+<div class="soa">
+  <div style="padding: 30px 30px;">
+   
+      <mp-label iri='{{page-resource}}' class="header__title-name"></mp-label>
+
+    <div class="header__title-sub" style="margin-bottom:8px;">
+      <semantic-query query="PREFIX foaf: <http://xmlns.com/foaf/0.1/>
+PREFIX Service: <http://www.metaphacts.com/ontologies/platform/service/>
+PREFIX Repository: <http://www.metaphacts.com/ontologies/repository#>
+SELECT * WHERE {
+
+            SERVICE Repository:default { 
+ 
+            <{{page-resource}}> <http://purl.org/dc/terms/creator> ?author .
+            BIND(?author as ?authorlpwc)
+            }
+                SERVICE <https://semopenalex.org/sparql> { 
+    
+    ?authorlpwc foaf:name ?name
+
+  }
+
+
+          } " template='{{>authors}}'>
+        <template id='authors'>
+          {{#each bindings}}
+          <semantic-link iri='{{author.value}}'>{{name.value}}</semantic-link>
+          {{#unless @last}}, {{/unless}}
+          {{/each}}
+        </template>
+      </semantic-query>
+    </div>
+
+    <bs-row style='width: 100%'>
+      <bs-col style="min-height: 50px; margin-right: 30px" class='box'>
+          <p></p>
+          <div class="card__title_2">ABSTRACT</div>
+          <semantic-query query='
+    PREFIX foaf: <http://xmlns.com/foaf/0.1/>
+    PREFIX person: <http://example.com/person/> 
+    SELECT ?description WHERE {                    
+      Bind(?? as ?Subject)
+      ?Subject <http://purl.org/dc/terms/abstract> ?description.
+    }' template="{{> template}}">
+            <template id="template">
+              {{#each bindings}}
+              <p> {{description.value}} </p>
+              {{/each}}
+            </template>
+          </semantic-query>
+      </bs-col>
+
+
+      <bs-col style='min-width: 50%; margin-right: 0px;'>
+        <div style='margin-top:0px;'>
+          <p></p>
+  
+
+
+          <div class="card__title_2">URL</div>
+          <semantic-query query='
+    PREFIX lpwc: <https://linkedpaperswithcode.com/property/>
+    SELECT ?url WHERE {
+     <{{page-resource}}> <http://purl.org/spar/fabio/hasURL> ?url .
+    } LIMIT 1' template='{{> template}}'>
+            <template id="template">
+              {{#each bindings}}
+              <a href="{{url.value}}">{{url.value}}</a>
+              {{/each}}
+              <p> </p>
+            </template>
+          </semantic-query>
+
+              <div class="card__title_2">DATE</div>
+              <semantic-query query='
+    PREFIX lpwc: <https://linkedpaperswithcode.com/property/>
+    SELECT ?date WHERE {
+     <{{page-resource}}> <http://purl.org/dc/terms/date> ?date .
+    } LIMIT 1' template='{{>template}}'>
+                <template id='template'>
+                  {{#each bindings}}
+                  <p> {{date.value}} </p>
+                  {{/each}}
+                </template>
+              </semantic-query>
+
+
+
+                  <div class="card__title_2">CONFERENCE</div>
+                  <semantic-query query='
+   PREFIX lpwc: <https://linkedpaperswithcode.com/property/>
+    SELECT ?conference ?name WHERE {
+     <{{page-resource}}> lpwc:hasConference ?conference .
+     ?conference <http://xmlns.com/foaf/0.1/name> ?name.
+    } LIMIT 1' template='{{>template}}' no-result-template='</span> No Conference found.</span>'>
+                    <template id='template'>
+                      {{#each bindings}}
+                      <p> {{name.value}}: <semantic-link iri="{{conference.value}}"
+                          style="width: 100%;"></semantic-link> </p>
+                      {{/each}}
+                    </template>
+                  </semantic-query>
+
+
+                      <div class="card__title_2">SEMOPENALEX LINK</div>
+                      <semantic-query query='
+   PREFIX lpwc: <https://linkedpaperswithcode.com/property/>
+    SELECT ?paper WHERE {
+     <{{page-resource}}> owl:sameAs ?paper .
+    } LIMIT 1' template='{{>template}}'>
+                        <template id='template'>
+                          {{#each bindings}}
+                          <semantic-link iri="{{paper.value}}" style="width: 100%;"></semantic-link>
+                          {{/each}}
+                          <p></p>
+                        </template>
+                      </semantic-query>
+
+        </div>
+      </bs-col>
+    </bs-row>
+
+
+    <p></p>
+    <div class="row related-concepts">
+      <div class="card__title_2">TASKS</div>
+      <div>
+        <semantic-query query='
+        PREFIX lpwc: <https://linkedpaperswithcode.com/property/>
+      SELECT ?task WHERE {
+        BIND(<{{page-resource}}> as ?paper)
+        ?paper lpwc:hasTask ?task .
+      } LIMIT 20
+    ' template='{{>tmp}}' no-result-template='<span>No Tasks found.</span>'>
+          <template id="tmp">
+            {{#each bindings}}
+            <span class="badge badge-secondary" style='margin: 4px;'>
+              <semantic-link iri="{{task.value}}"></semantic-link>&nbsp;
+            </span>
+            {{/each}}
+          </template>
+        </semantic-query>
+      </div>
+    </div>
+
+    <p></p>
+    <div class="row related-concepts">
+      <div class="card__title_2">METHODS</div>
+      <div>
+        <semantic-query query='
+        PREFIX lpwc: <https://linkedpaperswithcode.com/property/>
+      SELECT ?method WHERE {
+        BIND(<{{page-resource}}> as ?paper)
+        ?paper lpwc:hasMethod ?method .
+      } LIMIT 20
+    ' template='{{>tmp}}' no-result-template='<span>No Methods found.</span>'>
+          <template id="tmp">
+            {{#each bindings}}
+            <span class="badge badge-secondary" style='margin: 4px;'>
+              <semantic-link iri="{{method.value}}"></semantic-link>&nbsp;
+            </span>
+            {{/each}}
+          </template>
+        </semantic-query>
+      </div>
+    </div>
+
+
+
+
+    <div class="main">
+      <div style="padding: 30px 0px;">
+        <bs-row style='width: 100%'>
+
+          <bs-col style="min-height: 50px; margin-right: 30px; padding: 10px" class='box'>
+            <div style='margin-top:8px;'>
+              <div class="card__title_2">CONNECTED CODE</div>
+              <p></p>
+
+              <div class="card__title_3">OFFICIAL REPOSITORIES</div>
+
+              <semantic-query query='
+    PREFIX lpwc: <https://linkedpaperswithcode.com/property/>
+    SELECT ?officialRepository  WHERE {
+     <{{page-resource}}> lpwc:hasOfficialRepository ?officialRepository .
+    }' template='{{> template}}' no-result-template='</span> No Official Repositories found.</span>'>
+                <template id="template">
+                  {{#each bindings}}
+                  <span class="badge badge-secondary" style='margin: 4px;'>
+                    <semantic-link iri="{{officialRepository.value}}" style="width: 100%;"></semantic-link>
+                  </span>
+                  {{/each}}
+                  <p></p>
+                </template>
+              </semantic-query>
+              <p></p>
+              <div class="card__title_3">REPOSITORIES</div>
+              <semantic-query query='
+    PREFIX lpwc: <https://linkedpaperswithcode.com/property/>
+    SELECT ?officialRepository  WHERE {
+     <{{page-resource}}> lpwc:hasRepository ?officialRepository .
+    } LIMIT 20' template='{{> template}}' no-result-template='</span> No Repositories found.</span>'>
+                <template id="template">
+                  {{#each bindings}}
+                  <span class="badge badge-secondary" style='margin: 4px;'>
+                    <semantic-link iri="{{officialRepository.value}}"></semantic-link>
+                  </span>
+                  {{/each}}
+                  <p></p>
+                </template>
+              </semantic-query>
+
+
+
+            </div>
+          </bs-col>
+
+          <bs-col style='min-width: 50%; padding: 10px;'>
+     
+              <div class="card__title_2">CONNECTED DATASETS</div>
+              <p></p>
+
+              <div class="card__title_3">INTRODUCED IN THE PAPER</div>
+
+              <semantic-query query='
+    PREFIX lpwc: <https://linkedpaperswithcode.com/property/>
+    SELECT ?dataset  WHERE {
+    ?dataset a <https://linkedpaperswithcode.com/class/dataset> .
+    ?dataset lpwc:introducedBy <{{page-resource}}> .
+    }' template='{{> template}}' no-result-template='</span> No Datasets found.</span>'>
+                <template id="template">
+                  {{#each bindings}}
+                  <span class="badge badge-secondary" style='margin: 4px;'>
+                    <semantic-link iri="{{dataset.value}}" style="width: 100%;"></semantic-link>
+                  </span>
+                  {{/each}}
+                  <p></p>
+                </template>
+              </semantic-query>
+
+              <div class="card__title_3">USED IN THE PAPER</div>
+              <semantic-query query='
+    PREFIX lpwc: <https://linkedpaperswithcode.com/property/>
+    SELECT ?dataset  WHERE {
+     ?dataset a <https://linkedpaperswithcode.com/class/dataset> .
+     <{{page-resource}}> lpwc:usesDataset ?dataset .
+    } LIMIT 20' template='{{> template}}' no-result-template='</span> No Datasets found.</span>'>
+                <template id="template">
+                  {{#each bindings}}
+                  <span class="badge badge-secondary" style='margin: 4px;'>
+                    <semantic-link iri="{{dataset.value}}"></semantic-link>
+                  </span>
+                  {{/each}}
+                  <p></p>
+                </template>
+              </semantic-query>
+          </bs-col>
+        </bs-row>
+        <p></p>
+
+
+
+        <bs-row style='margin-top: 30px'>
+          <bs-col class='box'>
+
+
+            <div style='margin-top:8px; padding: 10px;'>
+              <div class="card__title_2">EVALUATION FROM THE PAPER</div>
+              <p></p>
+              <semantic-table query="
+PREFIX foaf: <http://xmlns.com/foaf/0.1/>
+PREFIX lpwc: <https://linkedpaperswithcode.com/property/>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+
+SELECT ?Task ?Dataset ?Model ?MetricName ?MetricValue ?ExtraTrainingData WHERE {
+
+<{{page-resource}}> lpwc:hasEvaluation ?evaluation .
+
+?evaluation lpwc:hasTask ?Task .
+?evaluation lpwc:hasDataset ?Dataset .
+?evaluation lpwc:hasModel ?Model .
+?evaluation lpwc:hasEvaluationResult ?result .
+
+?result lpwc:metricName ?MetricName .
+?result lpwc:metricValue ?MetricValue .
+?result lpwc:usesExtraTrainingData ?ExtraTrainingData .
+
+} order by ?Dataset
+  " column-configuration='[
+    
+    ]' options='{"defaultCellTemplate": "{{> defaultCell}}",  
+                    "enableGrouping": false,
+                    "groupingOptions": {"groupedBy": [""]}, "showFilter": false
+                }' no-result-template='</span> No Data found.</span>'>
+                <template id="defaultCell">
+                  {{#if (isIri cellValue)}}
+                  <semantic-link iri="{{cellValue.value}}"></semantic-link>
+                  {{else}}
+                  {{cellValue.value}}
+                  {{/if}}
+                </template>
+              </semantic-table>
+            </div>
+          </bs-col>
+        </bs-row>
+      </div>
+    </div>
+  </div>
+</div>

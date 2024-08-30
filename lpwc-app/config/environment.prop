@@ -1,0 +1,1 @@
+shiroAuthenticationFilter = authcBasic,authc,anon

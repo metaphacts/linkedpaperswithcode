@@ -1,0 +1,265 @@
+<style>
+  .grid {
+    display: grid;
+    grid-template-rows: calc(100% - 58px) 42px;
+    grid-gap: 16px;
+  }
+
+  .single-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .panel {
+    display: flex;
+    flex-direction: column;
+    border-radius: 8px;
+    background-color: #FFFFFF;
+    box-shadow: 0 0 14px 0 rgba(0, 0, 0, 0.12);
+    height: 100%;
+  }
+
+  .ontodia-container {
+    flex: auto;
+    display: flex;
+    height: min(1000px, max(calc(100%), 500px));
+    min-height: min(1000px, max(calc(100%), 500px));
+    width: 100%;
+    max-height: 0;
+  }
+
+  .ontodia-workspace-container {
+    flex-grow: 1;
+    min-width: 50%;
+  }
+
+  .ontodia-knowledge-panel-container {
+    background-color: whitesmoke;
+    padding: 10px 10px 0px 0px;
+    max-width: 30%;
+  }
+
+  .ontodia-knowledge-panel-container .knowledge-panel-frame {
+    box-shadow: 0px 5px 13px 5px rgba(0, 0, 0, 0.12);
+    height: calc(100% - 10px);
+    transition: height 0.3s;
+    overflow: hidden;
+    margin-left: 0;
+    width: 380px;
+    max-width: 100%;
+  }
+
+  .knowledge-panel-frame .DataTable--global-filter-container {
+    width: 100%
+  }
+
+  .col {
+    box-shadow: 0 0 0px 1px rgb(0 0 0 / 20%);
+    border-radius: 8px;
+  }
+
+  .row {
+    margin: 0px;
+  }
+
+  .soa .header__title-name {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--soa-color-brown-darker);
+    line-height: 4.5rem;
+  }
+</style>
+
+<div class="soa">
+  <div style="padding: 30px 30px;">
+    <mp-label iri='{{page-resource}}' class="header__title-name"></mp-label>
+    <bs-row style='width: 100%'>
+      <bs-col style="min-height: 500px; margin-right: 30px" class='box'>
+        <div>
+          <p></p>
+
+          <div class="card__title_2">PAPER</div>
+          <semantic-query query='
+    PREFIX lpwc: <https://linkedpaperswithcode.com/property/>
+    SELECT ?Paper WHERE {
+     ?Paper lpwc:hasEvaluation <{{page-resource}}> .
+    }' template="{{> template}}">
+            <template id="template">
+              {{#each bindings}}
+              <semantic-link iri="{{Paper.value}}" style="width: 100%;"></semantic-link>
+              {{/each}}
+              <p></p>
+
+
+              <div class="card__title_2">HAS TASK</div>
+              <semantic-query query='
+    PREFIX lpwc: <https://linkedpaperswithcode.com/property/>
+    SELECT ?Task WHERE {
+     <{{page-resource}}> lpwc:hasTask ?Task .
+    }' template="{{> template}}">
+                <template id="template">
+                  {{#each bindings}}
+                  <semantic-link iri="{{Task.value}}" style="width: 100%;"></semantic-link>
+                  {{/each}}
+                  <p></p>
+
+                  <div class="card__title_2">HAS DATASET</div>
+                  <semantic-query query='
+    PREFIX lpwc: <https://linkedpaperswithcode.com/property/>
+    SELECT ?Dataset WHERE {
+     <{{page-resource}}> lpwc:hasDataset ?Dataset .
+    }' template="{{> template}}">
+                    <template id="template">
+                      {{#each bindings}}
+                      <semantic-link iri="{{Dataset.value}}" style="width: 100%;"></semantic-link>
+                      {{/each}}
+                      <p></p>
+
+                      <div class="card__title_2">HAS MODEL</div>
+                      <semantic-query query='
+    PREFIX lpwc: <https://linkedpaperswithcode.com/property/>
+    SELECT ?Model WHERE {
+     <{{page-resource}}> lpwc:hasModel ?Model .
+    }' template="{{> template}}">
+                        <template id="template">
+                          {{#each bindings}}
+                          <semantic-link iri="{{Model.value}}" style="width: 100%;"></semantic-link>
+                          {{/each}}
+                          <p></p>
+
+
+                        </template>
+                      </semantic-query>
+        </div>
+      </bs-col>
+
+      <bs-col style='min-width: 50%; padding: 0px;'>
+        <div style="height:100%; ">
+          <div class='ontodia-container'>
+            <div class='ontodia-workspace-container'>
+              <ontodia query="CONSTRUCT {?? ?po ?o . ?s ?ps ?? . } WHERE { {?? ?po ?o} UNION {?s ?ps ??} } LIMIT 100"
+                query-repository='default'>
+
+                <ontodia-canvas id='canvas' use-knowledge-panel='true'>
+                  <ontodia-halo-link></ontodia-halo-link>
+                  <ontodia-halo></ontodia-halo>
+
+                  <ontodia-toolbar id='ontodia-toolbar1-demo10'>
+                    <div class='btn-group btn-group-sm' style='margin-right: 10px;'>
+                      <button name='undo' class='btn btn-default'><i class='fa fa-undo'></i></button>
+                      <button name='redo' class='btn btn-default'><i class='fa fa-repeat'></i></button>
+                    </div>
+                    <div class='btn-group btn-group-sm'>
+                      <bs-dropdown bs-size='sm'>
+                        <bs-dropdown-toggle>Export</bs-dropdown-toggle>
+                        <bs-dropdown-menu>
+                          <bs-menu-item name='exportPng'>
+                            <i class='fa fa-picture-o'></i> Export PNG
+                          </bs-menu-item>
+                          <bs-menu-item name='exportSvg'>
+                            <i class='fa fa-picture-o'></i> Export SVG
+                          </bs-menu-item>
+                          <bs-menu-item name='print'>
+                            <i class='fa fa-print'></i> Print
+                          </bs-menu-item>
+                        </bs-dropdown-menu>
+                      </bs-dropdown>
+                    </div>
+                    <div class='btn-group btn-group-sm' style='margin-right: 10px;'>
+                      <bs-dropdown bs-size='sm' dropup=false>
+                        <!-- todo-oss: only force layout in OSS -->
+                        <button name='forceLayout' class='btn btn-default'>
+                          <i class='fa fa-snowflake-o'></i> Force layout
+                        </button>
+                        <bs-dropdown-toggle></bs-dropdown-toggle>
+                        <bs-dropdown-menu>
+                          <bs-menu-item name='flowLayout'><i class='fa fa-sitemap'></i> Flow layout</bs-menu-item>
+                          <bs-menu-item name='sankeyLayout'><i class='fa fa-sitemap'
+                              style='transform: rotate(90deg);'></i> Sankey layout</bs-menu-item>
+                          <bs-menu-item name='gridLayout'><i class='fa fa-th'></i> Grid layout</bs-menu-item>
+                          <bs-menu-item name='autoLayout'><i class='fa fa-magic'></i> Auto layout</bs-menu-item>
+                        </bs-dropdown-menu>
+                      </bs-dropdown>
+                    </div>
+                  </ontodia-toolbar>
+                  <ontodia-toolbar id='ontodia-toolbar2-demo10' dock='sw'>
+                    <div class='btn-group-vertical btn-group-sm'>
+                      <button name='zoomIn' class='btn btn-default' title='Zoom in'>
+                        <i class='fa fa-search-plus'></i>
+                      </button>
+                      <button name='zoomOut' class='btn btn-default' title='Zoom out'>
+                        <i class='fa fa-search-minus'></i>
+                      </button>
+                      <button name='zoomToFit' class='btn btn-default' title='Fit to screen'>
+                        <i class='fa fa-arrows-alt'></i>
+                      </button>
+                    </div>
+                  </ontodia-toolbar>
+                  <ontodia-navigator></ontodia-navigator>
+                </ontodia-canvas>
+              </ontodia>
+            </div>
+
+            <div class='ontodia-knowledge-panel-container'>
+              <mp-event-proxy id='proxy-selection' on-event-type='Ontodia.ShowElementInfo'
+                proxy-event-type='KnowledgePanel.Open' proxy-targets='[]'>
+              </mp-event-proxy>
+              <semantic-context repository='default'>
+                <mp-knowledge-panel-frame no-pin=true></mp-knowledge-panel-frame>
+              </semantic-context>
+            </div>
+          </div>
+        </div>
+      </bs-col>
+    </bs-row>
+
+
+
+
+
+
+
+    <bs-row style='margin-top: 30px'>
+      <bs-col class='box'>
+
+
+        <div style='margin-top:8px; padding: 10px;'>
+          <div class="card__title_2">EVALUATION RESULT</div>
+          <p></p>
+          <semantic-table query="
+PREFIX foaf: <http://xmlns.com/foaf/0.1/>
+PREFIX lpwc: <https://linkedpaperswithcode.com/property/>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+
+SELECT ?Task ?Dataset ?Model ?MetricName ?MetricValue ?ExtraTrainingData WHERE {
+
+
+<{{page-resource}}> lpwc:hasTask ?Task .
+<{{page-resource}}> lpwc:hasDataset ?Dataset .
+<{{page-resource}}> lpwc:hasModel ?Model .
+<{{page-resource}}> lpwc:hasEvaluationResult ?result .
+
+?result lpwc:metricName ?MetricName .
+?result lpwc:metricValue ?MetricValue .
+?result lpwc:usesExtraTrainingData ?ExtraTrainingData .
+
+} order by ?Dataset
+  " column-configuration='[
+    
+    ]' options='{ 
+                    "enableGrouping": false,
+                    "groupingOptions": {"groupedBy": [""]}, "showFilter": false
+                }' no-result-template='</span> No Data found.</span>'>
+            <template id="defaultCell">
+              {{#if (isIri cellValue)}}
+              {{> :oneClickPopover object=cellValue.value repository="default"}}
+              {{else}}
+              {{cellValue.value}}
+              {{/if}}
+            </template>
+          </semantic-table>
+        </div>
+      </bs-col>
+    </bs-row>
+  </div>
+</div>

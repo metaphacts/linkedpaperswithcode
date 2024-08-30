@@ -1,0 +1,305 @@
+<ol class="page-breadcrumb">
+  <li>
+    <semantic-link title="Start" iri='{{rdf-resolvePrefix ":Start"}}'>Start</semantic-link>
+  </li>
+  <li class="active">LPWC</li>
+</ol>
+
+ <div class="grid single-grid">
+        <div class="panel">
+          <bs-row style='padding-top: 50px; margin: 0px;'>
+            <bs-col sm='10' sm-offset='1'>
+
+             <h1 class="" style="padding-top: 30px;">Explore Linked Papers With Code</h1>
+              <p class="" ><b><semantic-link iri='http://www.metaphactory.lpwc.com/app/About'>Linked Papers With Code (LPWC)</semantic-link></b> is an RDF knowledge graph that comprehensively models the research field of <b>machine learning</b>. 
+                It contains information about more than 400,000 machine learning <b>publications</b>, including the <b>tasks</b> addressed, the <b>datasets</b> utilized, 
+                the <b>methods</b> implemented, and the <b>evaluations</b> conducted, along with their <b>results</b>. The data set is based on <b>Papers With Code</b> 
+                and licensed under the CC BY-SA 4.0 license. Furthermore, we provide <b></b>knowledge graph embeddings</b>, for entities and relations represented in LPWC.
+              </p>
+
+<div style='padding: 0px; padding-top: 8px'>
+  {{> Platform:SearchResultsFragments::defaultStyle}}
+
+  <semantic-search id="my-search" relations='{
+        "<https://linkedpaperswithcode.com/category-placeholder>": [{
+          "kind": "resource",
+          "queryPattern": "{ { $subject <http://dbpedia.org/property/category> ?__value__ . } UNION { $subject <https://linkedpaperswithcode.com/property/mainCategory> ?__value__ . }}"
+        }],
+        "<https://linkedpaperswithcode.com/category-inverse-placeholder>": [{
+          "kind": "resource",
+          "queryPattern": "{ { $subject ^<http://dbpedia.org/property/category> ?__value__ . } UNION { $subject ^<https://linkedpaperswithcode.com/property/mainCategory> ?__value__ . }}"
+        }],
+        "<https://linkedpaperswithcode.com/used-for-task-inverse-placeholder>": [{
+          "kind": "resource",
+          "queryPattern": "{ $subject ^<https://linkedpaperswithcode.com/property/usedForTask> ?__value__ . }"
+        }],
+        "<https://linkedpaperswithcode.com/has-method-inverse-placeholder>": [{
+          "kind": "resource",
+          "queryPattern": "{ $subject ^<https://linkedpaperswithcode.com/property/hasMethod> ?__value__ . }"
+        }],
+        "<https://linkedpaperswithcode.com/has-task-inverse-placeholder>": [{
+          "kind": "resource",
+          "queryPattern": "{ $subject ^<https://linkedpaperswithcode.com/property/hasTask> ?__value__ . }"
+        }],
+        "<https://linkedpaperswithcode.com/uses-dataset-inverse-placeholder>": [{
+          "kind": "resource",
+          "queryPattern": "{ $subject ^<https://linkedpaperswithcode.com/property/usesDataset> ?__value__ . }"
+        }],
+        "<https://linkedpaperswithcode.com/dataset-method-placeholder>": [{
+          "kind": "resource",
+          "queryPattern": "{ $subject ^<https://linkedpaperswithcode.com/property/usesDataset>/<https://linkedpaperswithcode.com/property/hasMethod> ?__value__ . }"
+        }],
+        "<https://linkedpaperswithcode.com/method-dataset-placeholder>": [{
+          "kind": "resource",
+          "queryPattern": "{ $subject ^<https://linkedpaperswithcode.com/property/hasMethod>/<https://linkedpaperswithcode.com/property/usesDataset> ?__value__ . }"
+        }],
+        "<https://linkedpaperswithcode.com/task-method-placeholder>": [{
+          "kind": "resource",
+          "queryPattern": "{ $subject ^<https://linkedpaperswithcode.com/property/hasTask>/<https://linkedpaperswithcode.com/property/hasMethod> ?__value__ . }"
+        }],
+        "<https://linkedpaperswithcode.com/method-task-placeholder>": [{
+          "kind": "resource",
+          "queryPattern": "{ $subject ^<https://linkedpaperswithcode.com/property/hasMethod>/<https://linkedpaperswithcode.com/property/hasTask> ?__value__ . }"
+        }],
+        "<https://linkedpaperswithcode.com/repository-placeholder>": [{
+          "kind": "resource",
+          "queryPattern": "{ { $subject <https://linkedpaperswithcode.com/property/hasRepository> ?__value__ . } UNION { $subject <https://linkedpaperswithcode.com/property/hasOfficialRepository> ?__value__ . }}"
+        }],
+        "<https://linkedpaperswithcode.com/repository-inverse-placeholder>": [{
+          "kind": "resource",
+          "queryPattern": "{ { $subject ^<https://linkedpaperswithcode.com/property/hasRepository> ?__value__ . } UNION { $subject ^<https://linkedpaperswithcode.com/property/hasOfficialRepository> ?__value__ . }}"
+        }],
+        "<https://linkedpaperswithcode.com/evaluation-inverse-placeholder>": [{
+          "kind": "resource",
+          "queryPattern": "{ $subject ^<https://linkedpaperswithcode.com/property/hasEvaluation> ?__value__ . }"
+        }],
+        "<https://linkedpaperswithcode.com/area-inverse-placeholder>": [{
+          "kind": "resource",
+          "queryPattern": "{ $subject ^<http://dbpedia.org/property/area> ?__value__ . }"
+        }]
+
+      }' search-profile='{
+        "categories": [
+        {
+          "iri": "<https://linkedpaperswithcode.com/class/paper>",
+          "label": "Paper",
+          "thumbnail": "/assets/images/essay.png"
+        },
+         {
+          "iri": "<https://linkedpaperswithcode.com/class/repository>",
+          "label": "Repository",
+          "thumbnail": "/assets/images/web-development.png"
+        },
+        {
+          "iri": "<https://linkedpaperswithcode.com/class/dataset>",
+          "label": "Dataset",
+          "thumbnail": "/assets/images/server-control.png"
+        },
+        {
+        	"iri": "<https://linkedpaperswithcode.com/class/task>",
+          "label": "Task",
+          "thumbnail": "/assets/images/planning.png"
+        }, 
+        {
+          "iri": "<https://linkedpaperswithcode.com/class/method>",
+          "label": "Method",
+          "thumbnail": "/assets/images/solution.png"
+        }, {
+          "iri": "<https://linkedpaperswithcode.com/class/evaluation>",
+          "label": "Evaluation",
+          "thumbnail": "/assets/images/data.png"
+        }, {
+          "iri": "<https://linkedpaperswithcode.com/class/conference>",
+          "label": "Conference",
+          "thumbnail": "/assets/images/conference.png"
+        }, {
+          "iri": "<https://linkedpaperswithcode.com/class/category>",
+          "label": "Category",
+          "thumbnail": "/assets/images/category.png"
+        }, {
+          "iri": "<https://linkedpaperswithcode.com/class/area>",
+          "label": "Area",
+          "thumbnail": "/assets/images/lamp.png"
+        }
+        ],
+
+        "relations": [
+          {  
+            "hasDomain": "<https://linkedpaperswithcode.com/class/dataset>",
+            "iri": "<https://linkedpaperswithcode.com/property/usedForTask>",
+            "hasRange": "<https://linkedpaperswithcode.com/class/task>",
+            "label": "connected task"
+          },{
+            "hasDomain": "<https://linkedpaperswithcode.com/class/paper>",
+            "iri": "<https://linkedpaperswithcode.com/property/hasTask>",
+            "hasRange": "<https://linkedpaperswithcode.com/class/task>",
+            "label": "has task"
+          }, {
+            "hasDomain": "<https://linkedpaperswithcode.com/class/task>",
+            "iri": "<https://linkedpaperswithcode.com/property/hasSubtask>",
+            "hasRange": "<https://linkedpaperswithcode.com/class/task>",
+            "label": "has subtask"
+          }, {
+            "hasDomain": "<https://linkedpaperswithcode.com/class/evaluation>",
+            "iri": "<https://linkedpaperswithcode.com/property/hasTask>",
+            "hasRange": "<https://linkedpaperswithcode.com/class/task>",
+            "label": "has task"
+          }, {
+            "hasDomain": "<https://linkedpaperswithcode.com/class/task>",
+            "iri": "<https://linkedpaperswithcode.com/used-for-task-inverse-placeholder>",
+            "hasRange": "<https://linkedpaperswithcode.com/class/dataset>",
+            "label": "connected dataset"
+          }, {
+            "hasDomain": "<https://linkedpaperswithcode.com/class/paper>",
+            "iri": "<https://linkedpaperswithcode.com/property/usesDataset>",
+            "hasRange": "<https://linkedpaperswithcode.com/class/dataset>",
+            "label": "used dataset"
+          }, {
+            "hasDomain": "<https://linkedpaperswithcode.com/class/evaluation>",
+            "iri": "<https://linkedpaperswithcode.com/property/hasDataset>",
+            "hasRange": "<https://linkedpaperswithcode.com/class/dataset>",
+            "label": "has dataset"
+          }, {
+            "hasDomain": "<https://linkedpaperswithcode.com/class/paper>",
+            "iri": "<https://linkedpaperswithcode.com/property/hasMethod>",
+            "hasRange": "<https://linkedpaperswithcode.com/class/method>",
+            "label": "has method"
+          }, {
+            "hasDomain": "<https://linkedpaperswithcode.com/class/category>",
+            "iri": "<https://linkedpaperswithcode.com/category-inverse-placeholder>",
+            "hasRange": "<https://linkedpaperswithcode.com/class/method>",
+            "label": "connected method"
+          }, {
+            "hasDomain": "<https://linkedpaperswithcode.com/class/dataset>",
+            "iri": "<https://linkedpaperswithcode.com/dataset-method-placeholder>",
+            "hasRange": "<https://linkedpaperswithcode.com/class/method>",
+            "label": "connected method"
+          }, {
+            "hasDomain": "<https://linkedpaperswithcode.com/class/method>",
+            "iri": "<https://linkedpaperswithcode.com/method-dataset-placeholder>",
+            "hasRange": "<https://linkedpaperswithcode.com/class/dataset>",
+            "label": "connected dataset"
+          }, {
+            "hasDomain": "<https://linkedpaperswithcode.com/class/method>",
+            "iri": "<https://linkedpaperswithcode.com/category-placeholder>",
+            "hasRange": "<https://linkedpaperswithcode.com/class/category>",
+            "label": "has category"
+          }, {
+            "hasDomain": "<https://linkedpaperswithcode.com/class/category>",
+            "iri": "<https://linkedpaperswithcode.com/property/hasParent>",
+            "hasRange": "<https://linkedpaperswithcode.com/class/category>",
+            "label": "has parent"
+          }, {
+            "hasDomain": "<https://linkedpaperswithcode.com/class/category>",
+            "iri": "<http://dbpedia.org/property/area>",
+            "hasRange": "<https://linkedpaperswithcode.com/class/area>",
+            "label": "has area"
+          }, {
+            "hasDomain": "<https://linkedpaperswithcode.com/class/method>",
+            "iri": "<https://linkedpaperswithcode.com/has-method-inverse-placeholder>",
+            "hasRange": "<https://linkedpaperswithcode.com/class/paper>",
+            "label": "connected paper"
+          }, {
+            "hasDomain": "<https://linkedpaperswithcode.com/class/task>",
+            "iri": "<https://linkedpaperswithcode.com/has-task-inverse-placeholder>",
+            "hasRange": "<https://linkedpaperswithcode.com/class/paper>",
+            "label": "connected paper"
+          }, {
+            "hasDomain": "<https://linkedpaperswithcode.com/class/dataset>",
+            "iri": "<https://linkedpaperswithcode.com/uses-dataset-inverse-placeholder>",
+            "hasRange": "<https://linkedpaperswithcode.com/class/paper>",
+            "label": "connected paper"
+          }, {
+            "hasDomain": "<https://linkedpaperswithcode.com/class/paper>",
+            "iri": "<https://linkedpaperswithcode.com/repository-placeholder>",
+            "hasRange": "<https://linkedpaperswithcode.com/class/repository>",
+            "label": "has repository"
+          }, {
+            "hasDomain": "<https://linkedpaperswithcode.com/class/paper>",
+            "iri": "<https://linkedpaperswithcode.com/property/hasConference>",
+            "hasRange": "<https://linkedpaperswithcode.com/class/conference>",
+            "label": "has conference"
+          }, {
+            "hasDomain": "<https://linkedpaperswithcode.com/class/repository>",
+            "iri": "<https://linkedpaperswithcode.com/repository-inverse-placeholder>",
+            "hasRange": "<https://linkedpaperswithcode.com/class/paper>",
+            "label": "connected paper"
+          }, {
+            "hasDomain": "<https://linkedpaperswithcode.com/class/task>",
+            "iri": "<https://linkedpaperswithcode.com/task-method-placeholder>",
+            "hasRange": "<https://linkedpaperswithcode.com/class/method>",
+            "label": "connected method"
+          }, {
+            "hasDomain": "<https://linkedpaperswithcode.com/class/method>",
+            "iri": "<https://linkedpaperswithcode.com/method-task-placeholder>",
+            "hasRange": "<https://linkedpaperswithcode.com/class/task>",
+            "label": "connected task"
+          }, {
+            "hasDomain": "<https://linkedpaperswithcode.com/class/evaluation>",
+            "iri": "<https://linkedpaperswithcode.com/evaluation-inverse-placeholder>",
+            "hasRange": "<https://linkedpaperswithcode.com/class/paper>",
+            "label": "connected paper"
+          }, {
+            "hasDomain": "<https://linkedpaperswithcode.com/class/task>",
+            "iri": "<http://dbpedia.org/property/area>",
+            "hasRange": "<https://linkedpaperswithcode.com/class/area>",
+            "label": "has area"
+          }, {
+            "hasDomain": "<https://linkedpaperswithcode.com/class/area>",
+            "iri": "<https://linkedpaperswithcode.com/area-inverse-placeholder>",
+            "hasRange": "<https://linkedpaperswithcode.com/class/task>",
+            "label": "connected task"
+          }, {
+            "hasDomain": "<https://linkedpaperswithcode.com/class/area>",
+            "iri": "<https://linkedpaperswithcode.com/area-inverse-placeholder>",
+            "hasRange": "<https://linkedpaperswithcode.com/class/category>", 
+            "label": "connected category"
+          }
+        ]
+          }'>
+    <div class="search">
+      <semantic-search-query-universal id="my-query-definition"
+      initial-count-query='
+          PREFIX sys: <http://www.ontotext.com/owlim/system#>
+          SELECT (COUNT (*) as ?count) FROM sys:statistics {
+            ?subject a ?__domain__ .
+          }'
+           entity-lookup-query='
+      PREFIX Service: <http://www.metaphacts.com/ontologies/platform/service/>
+      PREFIX entitylookup: <http://www.metaphacts.com/ontologies/platform/service/entitylookup/>
+      SELECT ?subject ?type WHERE {
+        SERVICE Service:entityLookup {
+          ?subject entitylookup:entityName ?__name__ ;
+            entitylookup:candidateType ?__candidateType__ ;
+            entitylookup:type ?type ;
+            entitylookup:limit ?__limit__ ;
+            entitylookup:score ?score .
+        }
+      }'></semantic-search-query-universal>
+      <semantic-search-facet-store id="facet"></semantic-search-facet-store>
+      <semantic-search-result-group template="{{> searchResultGroupTemplate}}">
+        <template id="searchResultGroupTemplate">
+          <div class="searchTopMenu">
+            {{> Platform:SearchResultsFragments::startButton}}
+            {{> Platform:SearchResultsFragments::clearDomain}}
+          </div>
+          {{> Platform:SearchResultsFragments::searchResultGroupTemplate showKnowledgePanel=TRUE}}
+        </template>
+      </semantic-search-result-group>
+    </div>
+  </semantic-search>
+</div>
+<!-- 
+             "<https://linkedpaperswithcode.com/class/dataset>",
+            "<https://linkedpaperswithcode.com/class/task>",
+            "<https://linkedpaperswithcode.com/class/dataloader>",
+            "<https://linkedpaperswithcode.com/class/paper>",
+            "<https://linkedpaperswithcode.com/class/evaluationresult>",
+            "<https://linkedpaperswithcode.com/class/model>",
+            "<https://linkedpaperswithcode.com/class/method>",
+            "<https://linkedpaperswithcode.com/class/category>",
+            "<https://linkedpaperswithcode.com/class/evaluation>",
+            "<https://linkedpaperswithcode.com/class/repository>",
+            "<https://linkedpaperswithcode.com/class/repositoryreferences>",
+            "<https://linkedpaperswithcode.com/class/conference>",
+            "<https://linkedpaperswithcode.com/class/area>" -->

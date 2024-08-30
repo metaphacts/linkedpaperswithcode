@@ -1,0 +1,21 @@
+@prefix search: <http://www.metaphacts.com/ontologies/platform/service/search/> .
+@prefix pathfinder: <http://www.metaphacts.com/ontologies/platform/service/pathfinder/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix config: <tag:rdf4j.org,2023:config/> .
+@prefix rep: <http://www.openrdf.org/config/repository#> .
+@prefix sail: <http://www.openrdf.org/config/sail#> .
+@prefix sr: <http://www.openrdf.org/config/repository/sail#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix mph: <http://www.metaphacts.com/ontologies/platform/repository#> .
+@prefix ephedra: <http://www.metaphacts.com/ontologies/platform/ephedra#> .
+@prefix sparqlr: <http://www.openrdf.org/config/repository/sparql#> .
+
+[] a config:Repository, rep:Repository;
+  rep:repositoryID "tests";
+  rdfs:label "testsrepository for platform.";
+  rep:repositoryImpl [
+      rep:repositoryType "openrdf:SailRepository";
+      sr:sailImpl [
+          sail:sailType "openrdf:NativeStore"
+        ]
+    ] .
