@@ -8,8 +8,8 @@ Input:
 - The file pwc_1.nt.gz from the MLSea Dump (accessible at https://zenodo.org/records/11264641)
 
 Output:
-- .../paper-sameas-links.nt --> The sameas links between the publication entities of LPWC and MLSea
-- .../repository-sameas-links.nt --> The sameas links between the repository entities of LPWC and MLSea
-- .../dataset-sameas-links.nt --> The sameas links between the dataset entities of LPWC and MLSea
+- .../paper-sameas-links.nt --> The sameAs links between the publication entities of LPWC and MLSea
+- .../repository-sameas-links.nt --> The sameAs links between the repository entities of LPWC and MLSea
+- .../dataset-sameas-links.nt --> The sameAs links between the dataset entities of LPWC and MLSea
 
 More information about MLSea can be found in the publication [MLSea: A Semantic Layer for Discoverable Machine Learning](https://link.springer.com/chapter/10.1007/978-3-031-60635-9_11).
