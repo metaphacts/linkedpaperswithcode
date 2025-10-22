@@ -1,0 +1,129 @@
+PREFIX :<http://www.ontotext.com/connectors/lucene#>
+PREFIX inst:<http://www.ontotext.com/connectors/lucene/instance#>
+INSERT DATA {
+	inst:lookup-and-keyword :createConnector '''
+{
+  "fields": [
+    {
+      "fieldName": "type",
+      "propertyChain": [
+        "http://www.w3.org/1999/02/22-rdf-syntax-ns#type"
+      ],
+      "indexed": true,
+      "stored": false,
+      "analyzed": true,
+      "multivalued": true,
+      "ignoreInvalidValues": true,
+      "facet": false
+    },
+    {
+      "fieldName": "name$label",
+      "propertyChain": [
+        "http://www.w3.org/2000/01/rdf-schema#label"
+      ],
+      "indexed": true,
+      "stored": true,
+      "analyzed": true,
+      "multivalued": true,
+      "ignoreInvalidValues": false,
+      "facet": true
+    },
+    {
+      "fieldName": "name$prefLabel",
+      "propertyChain": [
+        "http://www.w3.org/2004/02/skos/core#prefLabel"
+      ],
+      "indexed": true,
+      "stored": true,
+      "analyzed": true,
+      "multivalued": true,
+      "ignoreInvalidValues": false,
+      "facet": true
+    },
+    {
+      "fieldName": "name$title",
+      "propertyChain": [
+        "http://purl.org/dc/terms/title"
+      ],
+      "indexed": true,
+      "stored": true,
+      "analyzed": true,
+      "multivalued": true,
+      "ignoreInvalidValues": false,
+      "facet": true
+    },
+    {
+      "fieldName": "name$acronym",
+      "propertyChain": [
+        "http://dbpedia.org/property/acronym"
+      ],
+      "indexed": true,
+      "stored": true,
+      "analyzed": true,
+      "multivalued": true,
+      "ignoreInvalidValues": false,
+      "facet": true
+    },
+    {
+      "fieldName": "name$hasVariant",
+      "propertyChain": [
+        "https://linkedpaperswithcode.com/property/hasVariant"
+      ],
+      "indexed": true,
+      "stored": true,
+      "analyzed": true,
+      "multivalued": true,
+      "ignoreInvalidValues": false,
+      "facet": true
+    },
+    {
+      "fieldName": "name$name",
+      "propertyChain": [
+        "http://xmlns.com/foaf/0.1/name"
+      ],
+      "indexed": true,
+      "stored": true,
+      "analyzed": true,
+      "multivalued": true,
+      "ignoreInvalidValues": false,
+      "facet": true
+    },
+    {
+      "fieldName": "name$fullname",
+      "propertyChain": [
+        "http://dbpedia.org/property/fullname"
+      ],
+      "indexed": true,
+      "stored": true,
+      "analyzed": true,
+      "multivalued": true,
+      "ignoreInvalidValues": false,
+      "facet": true
+    },
+    {
+      "fieldName": "allLiterals",
+      "propertyChain": [
+        "$literal"
+      ],
+      "datatype": "xsd:string",
+      "indexed": true,
+      "stored": true,
+      "analyzed": true,
+      "multivalued": true,
+      "ignoreInvalidValues": true,
+      "facet": false
+    }
+  ],
+  "languages": [],
+  "types": [
+    "$any"
+  ],
+  "readonly": false,
+  "detectFields": false,
+  "importGraph": false,
+  "skipInitialIndexing": false,
+  "boostProperties": [],
+  "stripMarkup": false
+}
+''' .
+}
